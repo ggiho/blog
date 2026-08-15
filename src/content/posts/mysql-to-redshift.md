@@ -1,0 +1,30 @@
+---
+title: MySQL 쿼리를 Redshift로 옮길 때 걸리는 것들
+description: MySQL에 익숙한 사람이 Redshift(PostgreSQL 계열)로 넘어갈 때 자주 막히는 지점 정리
+pubDatetime: 2026-06-20T09:00:00Z
+tags:
+  - redshift
+  - sql
+  - data-engineering
+---
+
+MySQL 쿼리를 그대로 Redshift에 붙이면 대부분 한 번에 안 된다. Redshift는 PostgreSQL 계열이라 문법과 동작이 미묘하게 다르다. 자주 걸리는 것만 추려본다.
+
+## 1. 세 부분 네이밍
+
+Redshift는 `database.schema.table` 3단 네이밍을 쓴다. MySQL의 `db.table` 감각으로 접근하면 스키마를 빼먹는다.
+
+## 2. 세션 변수가 없다
+
+MySQL의 `SET @var := ...` 스타일 세션 변수가 Redshift엔 없다. CTE나 임시 테이블로 풀어야 한다.
+
+## 3. 함수 이름이 다르다
+
+- `CONVERT_TZ(...)` → `CONVERT_TIMEZONE(...)`
+- `UNHEX/HEX` 같은 것도 대응 함수를 찾아 바꿔야 한다
+
+## 4. 날짜 분할 UNION ALL은 합칠 수 있다
+
+기간을 잘라 `UNION ALL`로 붙인 MySQL 쿼리는 Redshift에서 하나의 범위 조건으로 합치는 게 대개 더 빠르다.
+
+> 아직 초안입니다. 실제 사례로 더 채울 예정.
