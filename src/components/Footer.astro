@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = {
+  noMarginTop?: boolean;
+} & HTMLAttributes<"footer">;
+
+const { noMarginTop = false, class: className, ...attrs } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
+  {...attrs}
+>
+  <div
+    class="border-border text-muted-foreground flex flex-col items-center justify-between border-t py-6 text-xs sm:flex-row-reverse sm:py-4"
+  >
+    <a
+      class="hover:text-accent"
+      href="https://github.com/ggiho"
+      target="_blank"
+      rel="noreferrer"
+    >
+      github
+    </a>
+    <div class="my-2">
+      -- &copy; {currentYear} giho.seong &middot; built from markdown
+    </div>
+  </div>
+</footer>
