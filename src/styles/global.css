@@ -37,3 +37,8 @@
 :target {
   scroll-margin-block: 1rem;
 }
+
+/* 본문 섹션 제목에 앰버 강조 (본문 텍스트와 색 구분) */
+.app-prose :is(h2, h3, h4) {
+  color: var(--prompt);
+}
