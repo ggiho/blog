@@ -2,7 +2,6 @@
 @import "./theme.css";
 @import "./typography.css";
 @import "rehype-callouts/theme/obsidian";
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Noto+Serif+KR:wght@400;600&display=swap");
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -37,16 +36,4 @@
 
 :target {
   scroll-margin-block: 1rem;
-}
-
-/* 본문은 세리프(에디토리얼 리딩), UI/헤딩/코드는 모노(콘솔) 유지 */
-.app-prose {
-  font-family: "Source Serif 4", "Noto Serif KR", Georgia, serif;
-  font-size: 1.05rem;
-  line-height: 1.78;
-}
-.app-prose :is(h1, h2, h3, h4, h5, h6),
-.app-prose :is(code, pre, kbd, samp),
-.app-prose .astro-code {
-  font-family: var(--font-app);
 }
