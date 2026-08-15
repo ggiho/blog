@@ -1,0 +1,135 @@
+---
+import "@pagefind/default-ui/css/ui.css";
+import { getAssetPath } from "@/utils/withBase";
+
+const bundlePath = getAssetPath("pagefind/");
+---
+
+<dialog id="search-dialog" data-bundle-path={bundlePath} aria-label="Search">
+  <div class="sd-head">
+    <span class="text-prompt">giho=#</span>
+    <span class="text-muted-foreground">search</span>
+    <kbd class="sd-kbd">esc</kbd>
+  </div>
+  <div id="pagefind-search-modal"></div>
+</dialog>
+
+<script>
+  const onIdle = window.requestIdleCallback || ((cb: any) => setTimeout(cb, 1));
+
+  async function initPagefind(dialog: HTMLElement) {
+    if (dialog.dataset.inited) return;
+    dialog.dataset.inited = "1";
+    const bundlePath = dialog.dataset.bundlePath;
+    if (!bundlePath) return;
+    // @ts-expect-error — no types for @pagefind/default-ui
+    const { PagefindUI } = await import("@pagefind/default-ui");
+    new PagefindUI({
+      element: "#pagefind-search-modal",
+      bundlePath,
+      showImages: false,
+      showSubResults: true,
+    });
+  }
+
+  function getDialog() {
+    return document.getElementById("search-dialog") as HTMLDialogElement | null;
+  }
+
+  function openSearch() {
+    const d = getDialog();
+    if (!d || d.open) return;
+    d.showModal();
+    initPagefind(d).then(() => {
+      onIdle(() =>
+        (d.querySelector(".pagefind-ui__search-input") as HTMLElement | null)?.focus()
+      );
+    });
+  }
+
+  function closeSearch() {
+    getDialog()?.close();
+  }
+
+  if (!(window as any).__searchBound) {
+    (window as any).__searchBound = true;
+
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        const d = getDialog();
+        d && d.open ? closeSearch() : openSearch();
+      } else if (e.key === "Escape") {
+        closeSearch();
+      }
+    });
+
+    document.addEventListener("click", (e: MouseEvent) => {
+      const el = e.target as Element;
+      // 헤더/네비의 search 링크를 모달로 가로챔 (no-JS면 /search 페이지로 이동)
+      const trigger = el.closest?.(
+        'a[href$="/search"], a[href$="/search/"], [data-open-search]'
+      );
+      if (trigger) {
+        e.preventDefault();
+        openSearch();
+        return;
+      }
+      const d = getDialog();
+      if (d && e.target === d) closeSearch(); // 백드롭 클릭
+    });
+  }
+</script>
+
+<style is:global>
+  #search-dialog {
+    margin: 10vh auto auto;
+    width: min(92vw, 640px);
+    max-height: 75vh;
+    background: var(--background);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  }
+  #search-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+  }
+  #search-dialog .sd-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+  #search-dialog .sd-kbd {
+    margin-left: auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0 0.35rem;
+    font-size: 0.7rem;
+    color: var(--muted-foreground);
+  }
+  #pagefind-search-modal {
+    --pagefind-ui-font: var(--font-app);
+    --pagefind-ui-text: var(--foreground);
+    --pagefind-ui-background: var(--background);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-tag: var(--background);
+    --pagefind-ui-border-radius: 0.375rem;
+    --pagefind-ui-border-width: 1px;
+  }
+  #pagefind-search-modal .pagefind-ui__result-title a {
+    color: var(--accent);
+  }
+  /* 검색 하이라이트: 브라우저 기본 형광노랑 → 테마 앰버 */
+  mark {
+    background-color: var(--prompt);
+    color: var(--background);
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+</style>
