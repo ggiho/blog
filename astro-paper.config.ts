@@ -3,7 +3,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://gihoblog.pages.dev/",
-    title: "giho's garden",
+    title: "giho's blog",
     description: "데이터 엔지니어 giho의 psql 콘솔 블로그",
     author: "giho.seong",
     profile: "https://github.com/ggiho",
