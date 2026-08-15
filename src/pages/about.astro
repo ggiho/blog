@@ -1,36 +1,28 @@
 ---
-import { getEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
-import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
-import config from "@/config";
-
-const about = await getEntry("pages", "about");
-
-if (!about) {
-  throw new Error(
-    "Missing content entry: `about.md` or `about.mdx` in `src/content/pages/`"
-  );
-}
-
-const { Content } = await render(about);
 ---
 
-<Layout
-  title={`${about.data.title} | ${config.site.title}`}
-  description={about.data.description}
-  ogImage={about.data.ogImage}
-  canonicalURL={about.data.canonicalURL}
->
+<Layout title="About">
   <Header />
-
-  <Breadcrumb />
-
-  <Main pageTitle={about.data.title} class="app-prose">
-    <Content />
-  </Main>
-
+  <main id="main-content" class="app-layout my-1">
+    <section class="pt-8 pb-6 text-sm sm:text-base">
+      <p class="text-muted-foreground">giho@garden ~ % whoami</p>
+      <h1 class="mt-1 mb-6 text-2xl font-bold">giho.seong</h1>
+      <div class="space-y-4">
+        <p>
+          데이터베이스·데이터 엔지니어. MySQL·Redshift를 다루고, Neovim과 터미널에서
+          대부분의 시간을 보냅니다.
+        </p>
+        <p>이 블로그는 Obsidian 볼트의 글 중 공개용만 골라 발행합니다.</p>
+        <p>
+          탐색 →
+          <a class="text-accent hover:underline" href="/posts/">posts</a> ·
+          <a class="text-accent hover:underline" href="/tags/">tags</a>
+        </p>
+      </div>
+    </section>
+  </main>
   <Footer />
 </Layout>

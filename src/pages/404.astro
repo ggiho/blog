@@ -2,34 +2,22 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import LinkButton from "@/components/LinkButton.astro";
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { useTranslations } from "@/i18n";
-import config from "@/config";
-
-const locale = Astro.currentLocale ?? config.site.lang;
-const t = useTranslations(locale);
 ---
 
-<Layout title={`${t.notFound.title} | ${config.site.title}`}>
+<Layout title="404 · not found">
   <Header />
-
-  <main
-    id="main-content"
-    class="app-layout my-1 flex flex-1 items-center justify-center"
-  >
-    <div class="mb-14 flex flex-col items-center justify-center">
-      <h1 class="text-accent text-9xl font-bold">404</h1>
-      <span aria-hidden="true"> ¯\_(ツ)_/¯ </span>
-      <p class="mt-4 text-2xl sm:text-3xl">{t.notFound.message}</p>
-      <LinkButton
-        href={getRelativeLocaleUrl(locale, "")}
-        class="my-6 text-lg underline decoration-dashed underline-offset-8"
-      >
-        {t.notFound.goHome}
-      </LinkButton>
-    </div>
+  <main id="main-content" class="app-layout my-1">
+    <section class="pt-8 pb-6 text-sm sm:text-base">
+      <p>
+        <span class="text-prompt">giho=#</span> select * from pages where path = current_path;
+      </p>
+      <p class="text-muted-foreground mt-4">ERROR: relation for this path does not exist</p>
+      <p class="text-muted-foreground">DETAIL: 404 — page not found</p>
+      <p class="mt-6">
+        <a class="text-accent hover:underline" href="/">\c home</a>
+        <span class="text-muted-foreground">-- 홈으로 돌아가기</span>
+      </p>
+    </section>
   </main>
-
   <Footer />
 </Layout>
