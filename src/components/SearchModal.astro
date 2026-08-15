@@ -125,10 +125,12 @@ const bundlePath = getAssetPath("pagefind/");
   #pagefind-search-modal .pagefind-ui__result-title a {
     color: var(--accent);
   }
-  /* 검색 하이라이트: 브라우저 기본 형광노랑 → 테마 앰버 */
-  mark {
-    background-color: var(--prompt);
-    color: var(--background);
+  /* 검색 하이라이트: 형광노랑 → 테마 앰버 (Pagefind CSS보다 우선) */
+  mark,
+  .pagefind-ui__result-excerpt mark,
+  .pagefind-ui mark {
+    background-color: var(--prompt) !important;
+    color: var(--background) !important;
     border-radius: 2px;
     padding: 0 2px;
   }
