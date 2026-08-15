@@ -2,31 +2,55 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
-import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
-import Tag from "@/components/Tag.astro";
 import { getUniqueTags } from "@/utils/getUniqueTags";
-import { useTranslations } from "@/i18n";
 import config from "@/config";
 
 const posts = await getCollection("posts", ({ data }) => !data.draft);
 const tags = getUniqueTags(posts);
 
-const locale = Astro.currentLocale ?? config.site.lang;
-const t = useTranslations(locale);
+const counts = new Map<string, number>();
+for (const p of posts)
+  for (const tag of p.data.tags ?? [])
+    counts.set(tag.toLowerCase(), (counts.get(tag.toLowerCase()) ?? 0) + 1);
 ---
 
-<Layout title={`${t.pages.tagsTitle} | ${config.site.title}`}>
+<Layout title={`Tags | ${config.site.title}`}>
   <Header />
-
-  <Breadcrumb />
-
-  <Main pageTitle={t.pages.tagsTitle} pageDesc={t.pages.tagsDesc}>
-    <ul class="flex flex-wrap gap-6">
-      {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} />)}
-    </ul>
-  </Main>
-
+  <main id="main-content" class="app-layout my-1">
+    <section class="pt-6 pb-6 text-sm">
+      <p class="mb-6">
+        <span class="text-prompt">giho=#</span> select tag, count(*) from posts group by
+        tag order by count desc;
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left">
+          <thead>
+            <tr class="border-border text-muted-foreground border-b">
+              <th class="py-1 pr-4 font-medium">tag</th>
+              <th class="py-1 font-medium">count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              tags.map(({ tag, tagName }) => (
+                <tr class="border-border/60 hover:bg-muted/40 border-b transition-colors">
+                  <td class="py-1.5 pr-4 align-top">
+                    <a class="text-accent hover:underline" href={`/tags/${tag}/`}>
+                      #{tagName}
+                    </a>
+                  </td>
+                  <td class="text-muted-foreground py-1.5 align-top">
+                    {counts.get(tag.toLowerCase()) ?? "-"}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted-foreground mt-3">({tags.length} rows)</p>
+    </section>
+  </main>
   <Footer />
 </Layout>
