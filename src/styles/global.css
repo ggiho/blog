@@ -42,3 +42,8 @@
 .app-prose :is(h2, h3, h4) {
   color: var(--prompt);
 }
+
+/* 코드블록: night-owl 글씨색 유지, 배경만 검은회색으로 (네이비 제거) */
+html[data-theme="dark"] .astro-code {
+  background-color: #1c1c1e !important;
+}
