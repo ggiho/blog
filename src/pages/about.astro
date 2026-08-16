@@ -60,18 +60,29 @@ import Footer from "@/components/Footer.astro";
       </ul>
 
       <h2 class="text-prompt mt-8 mb-3 font-semibold">## 최근에 만든 것</h2>
-      <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
+      <ul class="marker:text-accent list-disc space-y-3 ps-5">
         <li>
-          <span class="text-accent">사내 DB 포털 · ERD 시각화</span> — 테이블·컬럼 검색
-          기반의 스키마 탐색 UX로 개발자의 DB 정보 접근을 단순화
+          <span class="text-accent">사내 DB 운영 포털</span> — 콘솔·스크립트·수작업에
+          흩어진 DBA 업무를 한 곳으로 모은 내부 플랫폼 (Next.js · tRPC · SSO). 주요 기능:
+          <ul
+            class="text-muted-foreground mt-1.5 list-[circle] space-y-1 ps-5 text-sm marker:text-muted-foreground"
+          >
+            <li>스키마 탐색 · ERD 시각화(검색 우선) + 환경/계정 간 스키마 Diff</li>
+            <li>DDL 표준 자동 리뷰, RDS/Aurora 관리(프로비저닝·파라미터·PI·삭제방지)</li>
+            <li>DMS 마이그레이션 태스크 모니터링 + 실패 시 자동 복구</li>
+            <li>멀티 계정 안전 처리, 승인 워크플로우(요청→승인→실행)</li>
+            <li>알림(에러로그·메트릭·CloudWatch), 접근 제어·감사</li>
+          </ul>
+          <span class="mt-1.5 block text-sm">
+            → <a
+              class="text-accent hover:underline"
+              href="/posts/building-a-db-ops-portal/">기능·설계 자세히 정리한 글</a
+            >
+          </span>
         </li>
         <li>
           <span class="text-accent">DB 접근 제어·거버넌스 도구</span> — 최소 권한·감사
           로그·데이터 마스킹 관점으로 상용 솔루션 대비 자체 구축 방향 설계
-        </li>
-        <li>
-          <span class="text-accent">DMS 파이프라인 자동 복구</span> — CDC 태스크 장애 시
-          자동 재시작으로 마이그레이션 안정성 개선
         </li>
         <li>
           <span class="text-accent">DBA 운영 자동화</span> — mysqlsh 덤프·grants 표준화,
