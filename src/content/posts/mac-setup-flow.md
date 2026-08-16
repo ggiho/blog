@@ -1,12 +1,15 @@
 ---
 title: Mac 초기 세팅 flow
-description: "1. chezmoi init javascript chezmoi init https://github.com/ggiho/dotfiles.git chezmoi update v chezmoi installed,…"
+description: >-
+  1. chezmoi init javascript chezmoi init https://github.com/ggiho/dotfiles.git
+  chezmoi update v chezmoi installed,…
 pubDatetime: 2026-01-21T05:37:46.446Z
 tags:
   - macos
   - setup
   - tools
 ---
+
 1. chezmoi init
 
 ```javascript

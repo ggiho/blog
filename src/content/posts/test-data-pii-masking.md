@@ -1,7 +1,7 @@
 ---
 title: 테스트 데이터 생성과 PII 마스킹 전략
-description: 운영 데이터를 그대로 복사하지 않고, 참조 무결성과 포맷을 지키면서 안전한 비운영 데이터셋 만들기
-pubDatetime: 2026-08-09T09:00:00Z
+description: '운영 데이터를 그대로 복사하지 않고, 참조 무결성과 포맷을 지키면서 안전한 비운영 데이터셋 만들기'
+pubDatetime: 2026-08-09T09:00:00.000Z
 tags:
   - database
   - testing

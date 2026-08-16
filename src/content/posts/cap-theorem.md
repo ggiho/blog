@@ -1,11 +1,14 @@
 ---
 title: CAP 이론
-description: "CAP 이론 (CAP Theorem) In a distributed system, you can choose at most two out of three guarantees: Consistency,…"
+description: >-
+  CAP 이론 (CAP Theorem) In a distributed system, you can choose at most two out
+  of three guarantees: Consistency,…
 pubDatetime: 2025-07-14T10:40:41.906Z
 tags:
   - distributed
   - theory
 ---
+
 ## Introduction
 
 ### 📌 CAP 이론 (CAP Theorem)

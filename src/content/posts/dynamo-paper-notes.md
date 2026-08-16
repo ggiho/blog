@@ -1,7 +1,9 @@
 ---
 title: Dynamo 논문 읽고 정리 — 항상 쓸 수 있는 키-값 저장소
-description: Amazon Dynamo(2007) 논문의 핵심 — 일관된 해싱, 벡터 클록, 정족수(N/R/W), hinted handoff, Merkle 트리, 가십
-pubDatetime: 2026-08-05T09:00:00Z
+description: >-
+  Amazon Dynamo(2007) 논문의 핵심 — 일관된 해싱, 벡터 클록, 정족수(N/R/W), hinted handoff, Merkle
+  트리, 가십
+pubDatetime: 2026-08-05T09:00:00.000Z
 tags:
   - distributed
   - nosql

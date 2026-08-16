@@ -1,14 +1,12 @@
 ---
 title: MySQL 쿼리를 Redshift로 옮길 때 걸리는 것들
 description: MySQL에 익숙한 사람이 Redshift(PostgreSQL 계열)로 넘어갈 때 자주 막히는 지점 정리
-pubDatetime: 2026-06-20T09:00:00Z
+pubDatetime: 2026-06-20T09:00:00.000Z
 tags:
   - redshift
   - sql
   - data-engineering
 ---
-
-import PsqlResult from "@/components/PsqlResult.astro";
 
 MySQL 쿼리를 그대로 Redshift에 붙이면 대부분 한 번에 안 된다. Redshift는 PostgreSQL 계열이라 문법과 동작이 미묘하게 다르다. 자주 걸리는 것만 추려본다.
 
@@ -27,17 +25,12 @@ MySQL의 `SET @var := ...` 스타일 세션 변수가 Redshift엔 없다. CTE나
 
 예를 들어 UTC로 저장된 시각을 KST로 바꿔 조회하면:
 
-<PsqlResult
-  db="analytics"
-  query="select id, convert_timezone('UTC','Asia/Seoul', created_at) as created_kst from events order by id limit 3;"
-  columns={["id", "created_kst"]}
-  rows={[
-    [1001, "2026-06-20 18:14:02"],
-    [1002, "2026-06-20 18:15:41"],
-    [1003, "2026-06-20 18:17:20"],
-  ]}
-  align={["right", "left"]}
-/>
+`analytics=#` `select id, convert_timezone('UTC','Asia/Seoul', created_at) as created_kst from events order by id limit 3;`
+
+| id | created_kst |
+| ---: | --- |
+
+*(0 rows)*
 
 ## 4. 날짜 분할 UNION ALL은 합칠 수 있다
 

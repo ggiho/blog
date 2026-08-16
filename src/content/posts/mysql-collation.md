@@ -1,11 +1,14 @@
 ---
 title: MySQL Collation
-description: MySQL에서 character set은 이제 utf8mb4 를 사용하는 것이 거의 기본처럼 되었다. 문제는 character set만 맞췄다고 끝나는 게 아니라는 점이다. 운영하다 보면 실제로는 collation…
+description: >-
+  MySQL에서 character set은 이제 utf8mb4 를 사용하는 것이 거의 기본처럼 되었다. 문제는 character set만
+  맞췄다고 끝나는 게 아니라는 점이다. 운영하다 보면 실제로는 collation…
 pubDatetime: 2026-05-11T05:53:49.209Z
 tags:
   - mysql
   - database
 ---
+
 ## Introduction
 
 MySQL에서 character set은 이제 `utf8mb4`를 사용하는 것이 거의 기본처럼 되었다. 문제는 character set만 맞췄다고 끝나는 게 아니라는 점이다.

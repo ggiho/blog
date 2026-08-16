@@ -1,11 +1,14 @@
 ---
 title: Airflow Tutorial
-description: 이미 안 쓰이는 곳이 없을 정도로 유명한 Apache top level 오픈소스이기 때문에 설명은 생략해도 될 것 같다. 이전 회사에서 cron을 airflow로 변경했던 적이 있었는데 시간이 꽤나 지나서 기억이…
+description: >-
+  이미 안 쓰이는 곳이 없을 정도로 유명한 Apache top level 오픈소스이기 때문에 설명은 생략해도 될 것 같다. 이전 회사에서
+  cron을 airflow로 변경했던 적이 있었는데 시간이 꽤나 지나서 기억이…
 pubDatetime: 2024-09-23T14:23:03.705Z
 tags:
   - airflow
   - data-engineering
 ---
+
 ## Introduction
 
 이미 안 쓰이는 곳이 없을 정도로 유명한 Apache top level 오픈소스이기 때문에 설명은 생략해도 될 것 같다.

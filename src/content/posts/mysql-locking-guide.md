@@ -1,15 +1,13 @@
 ---
 title: 실무에서 부딪히는 MySQL 잠금(Lock) 정리
-description: 레코드/갭/넥스트키 락부터 메타데이터 락, GET_LOCK, AUTO_INC 락까지 — 흩어진 노트를 한 편으로
-pubDatetime: 2026-08-15T09:00:00Z
+description: '레코드/갭/넥스트키 락부터 메타데이터 락, GET_LOCK, AUTO_INC 락까지 — 흩어진 노트를 한 편으로'
+pubDatetime: 2026-08-15T09:00:00.000Z
 tags:
   - mysql
   - lock
   - database
   - transaction
 ---
-
-import PsqlResult from "@/components/PsqlResult.astro";
 
 노트 여기저기에 흩어져 있던 잠금 관련 메모를 한 번에 정리한다. InnoDB 기준이고, 버전 차이가 있는 부분은 따로 표시했다.
 
@@ -118,16 +116,12 @@ JOIN information_schema.innodb_trx b ON b.trx_mysql_thread_id = w.blocking_pid
 JOIN information_schema.innodb_trx r ON r.trx_mysql_thread_id = w.waiting_pid;
 ```
 
-<PsqlResult
-  db="prod"
-  query="select blocking_pid, waiting_pid, wait_age, locked_table from sys.innodb_lock_waits;"
-  columns={["blocking_pid", "waiting_pid", "wait_age", "locked_table"]}
-  rows={[
-    [8123, 8140, "00:00:37", "`shop`.`orders`"],
-    [8123, 8155, "00:00:12", "`shop`.`orders`"],
-  ]}
-  align={["right", "right", "left", "left"]}
-/>
+`prod=#` `select blocking_pid, waiting_pid, wait_age, locked_table from sys.innodb_lock_waits;`
+
+| blocking_pid | waiting_pid | wait_age | locked_table |
+| ---: | ---: | --- | --- |
+
+*(0 rows)*
 
 `blocking_pid`를 `KILL` 하면 대기가 풀린다. 다만 근본 원인(긴 트랜잭션, 잘못된 잠금 순서)을 잡지 않으면 반복된다.
 

@@ -1,11 +1,14 @@
 ---
 title: 데이터 파일로 내보내기
-description: "shell SELECT FROM table WHERE condition INTO OUTFILE '/tmp/filename.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES…"
+description: >-
+  shell SELECT FROM table WHERE condition INTO OUTFILE '/tmp/filename.csv'
+  FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES…
 pubDatetime: 2023-04-14T05:19:00.638Z
 tags:
   - mysql
   - data-engineering
 ---
+
 ```shell
 SELECT * FROM table WHERE condition
 INTO OUTFILE '/tmp/filename.csv'

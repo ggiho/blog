@@ -1,7 +1,9 @@
 ---
 title: MariaDB MaxScale 운영 정리 — 자동 failover와 읽기/쓰기 분리
-description: mariadbmon 자동 failover, readwritesplit, maxctrl 운영 명령, 그리고 클라이언트 IP 보존(proxy protocol)까지
-pubDatetime: 2026-08-14T09:00:00Z
+description: >-
+  mariadbmon 자동 failover, readwritesplit, maxctrl 운영 명령, 그리고 클라이언트 IP 보존(proxy
+  protocol)까지
+pubDatetime: 2026-08-14T09:00:00.000Z
 tags:
   - mariadb
   - maxscale

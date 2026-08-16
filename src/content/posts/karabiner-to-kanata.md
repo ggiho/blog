@@ -1,7 +1,9 @@
 ---
-title: "Karabiner에서 kanata로 전환하기"
-description: "Karabiner-Elements를 걷어내고 kanata로 완전히 옮기기 — 제거·설치·launchd 자동실행과 자동 업데이트로 인한 재발 트러블슈팅까지"
-pubDatetime: 2026-05-01T09:00:00Z
+title: Karabiner에서 kanata로 전환하기
+description: >-
+  Karabiner-Elements를 걷어내고 kanata로 완전히 옮기기 — 제거·설치·launchd 자동실행과 자동 업데이트로 인한 재발
+  트러블슈팅까지
+pubDatetime: 2026-05-01T09:00:00.000Z
 tags:
   - keyboard
   - kanata
@@ -36,7 +38,6 @@ Karabiner-Elements에서 kanata로 전환하는 전체 과정을 정리한 문�
 > - Karabiner 앱(`/Applications/Karabiner-Elements.app`)을 삭제해도 **바이너리가 `/Library/Application Support/org.pqrs/Karabiner-Elements/`에 별도로 존재**해서 계속 살아난다
 > - Karabiner가 메모리에 남아있으면 kanata가 `IOHIDDeviceOpen error: not permitted`로 키보드를 잡지 못한다
 > - **결론: Karabiner-Elements 디렉토리 삭제 + 재부팅이 가장 확실한 방법**
-
 
 ## 1단계: Karabiner-Elements 완전 제거
 
@@ -74,7 +75,6 @@ sudo reboot
 > - `/Applications/.Karabiner-VirtualHIDDevice-Manager.app`
 > - `/Library/Application Support/org.pqrs/Karabiner-DriverKit-VirtualHIDDevice/`
 
-
 ## 2단계: kanata 설치
 
 ### Homebrew로 설치
@@ -92,7 +92,6 @@ kanata --version    # kanata 1.11.0
 
 > [!note] GitHub Release에서 직접 설치
 > Homebrew 대신 [GitHub Releases](https://github.com/jtroo/kanata/releases)에서 바이너리를 다운로드할 수도 있다. Apple Silicon이면 `kanata-macos-aarch64` 파일을 받는다.
-
 
 ## 3단계: Karabiner VirtualHID 드라이버 확인
 
@@ -114,7 +113,6 @@ Karabiner를 쓰고 있었다면 이미 설치되어 있다.
 
 > [!warning] Karabiner 완전 삭제 시
 > 나중에 Karabiner-Elements를 완전히 삭제하더라도 `Karabiner-DriverKit-VirtualHIDDevice`와 `.Karabiner-VirtualHIDDevice-Manager.app`은 **반드시 남겨둬야** 한다. 이것 없이는 kanata가 macOS에서 동작하지 않는다.
-
 
 ## 4단계: 설정 파일 준비
 
@@ -141,7 +139,6 @@ kanata --check --cfg ~/.config/kanata/kanata.kbd
 > [!tip] 설정 문법 참고
 > - [kanata Configuration Guide](https://github.com/jtroo/kanata/wiki/Configuration-guide)
 > - [kanata 키 이름 목록](https://github.com/jtroo/kanata/blob/main/docs/key-names.md)
-
 
 ## 5단계: 수동 실행으로 테스트
 
@@ -171,7 +168,6 @@ driver connected: true
 
 테스트가 끝나면 두 프로세스 모두 Ctrl+C로 종료한다.
 
-
 ## 6단계: 자동 실행 설정 (launchd)
 
 테스트가 정상이면 부팅 시 자동 실행되도록 launchd에 등록한다.
@@ -197,7 +193,6 @@ sudo launchctl print system/local.kanata | head -20
 
 `state = running`이면 정상.
 
-
 ## 7단계: Karabiner 설정 백업 (선택)
 
 1단계에서 Karabiner-Elements는 이미 제거되었다. 기존 설정을 보관하고 싶다면:
@@ -211,7 +206,6 @@ rm -rf ~/.config/karabiner
 ```
 
 System Settings → General → Login Items에서 Karabiner 관련 항목이 남아있으면 제거한다.
-
 
 ## 일상 운영
 
@@ -235,7 +229,6 @@ System Settings → General → Login Items에서 Karabiner 관련 항목이 남
 /tmp/kanata-vhid.out.log   # VirtualHID 표준 출력
 /tmp/kanata-vhid.err.log   # VirtualHID 에러 로그
 ```
-
 
 ## 트러블슈팅
 
@@ -307,7 +300,6 @@ sudo ~/.config/kanata/scripts/install-launchd.sh
 
 이것은 오류가 아니다. kanata의 외부 셸 명령 실행 기능(`cmd` action)이 비활성화된 빌드라는 의미. macOS의 Command 키(`lmet`) 매핑과는 무관하다.
 
-
 ## 참고 링크
 
 - [kanata GitHub](https://github.com/jtroo/kanata)
@@ -315,8 +307,6 @@ sudo ~/.config/kanata/scripts/install-launchd.sh
 - [kanata Releases](https://github.com/jtroo/kanata/releases)
 - [Karabiner DriverKit VirtualHIDDevice](https://github.com/pqrs-org/Karabiner-DriverKit-VirtualHIDDevice)
 - [Homebrew kanata](https://formulae.brew.sh/formula/kanata)
-
-
 
 ## 트러블슈팅 (추가): VirtualHIDDevice가 너무 최신이라 안 붙을 때
 

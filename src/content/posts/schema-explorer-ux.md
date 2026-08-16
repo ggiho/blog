@@ -1,7 +1,7 @@
 ---
 title: 개발자를 위한 스키마 탐색 UX — ERD를 넘어서
 description: 정적 ERD는 왜 잘 안 쓰이나. 검색·컨텍스트 중심의 스키마 탐색 도구를 설계하며 정리한 원칙
-pubDatetime: 2026-08-06T09:00:00Z
+pubDatetime: 2026-08-06T09:00:00.000Z
 tags:
   - database
   - erd

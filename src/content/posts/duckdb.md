@@ -1,11 +1,14 @@
 ---
 title: DuckDB
-description: 요즘 핫하다는 나만 모르던 DuckDB를 사용해 봤다. tip DuckDB는 SQLite의 직관성 및 접근성과 전문 열 데이터베이스의 고성능 기능을 조화롭게 결합한 데이터베이스입니다 Install shell…
+description: >-
+  요즘 핫하다는 나만 모르던 DuckDB를 사용해 봤다. tip DuckDB는 SQLite의 직관성 및 접근성과 전문 열 데이터베이스의 고성능
+  기능을 조화롭게 결합한 데이터베이스입니다 Install shell…
 pubDatetime: 2024-08-14T08:36:24.333Z
 tags:
   - duckdb
   - data-engineering
 ---
+
 ## Introduction
 
 요즘 핫하다는 나만 모르던 DuckDB를 사용해 봤다.

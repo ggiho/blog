@@ -1,12 +1,15 @@
 ---
 title: using rowid filter
-description: 시작하며 실행계획을 확인하다가 extra 컬럼에 처음 보는 문구가 있어서 조사해 봤습니다. MySQL에는 존재하지 않고 MariaDB 단독으로 쓰이는 조건인 것 같습니다. (/notion/rowid…
+description: >-
+  시작하며 실행계획을 확인하다가 extra 컬럼에 처음 보는 문구가 있어서 조사해 봤습니다. MySQL에는 존재하지 않고 MariaDB
+  단독으로 쓰이는 조건인 것 같습니다. (/notion/rowid…
 pubDatetime: 2023-03-30T00:07:27.058Z
 tags:
   - mysql
   - index
   - optimizer
 ---
+
 ## 시작하며
 
 실행계획을 확인하다가 extra 컬럼에 처음 보는 문구가 있어서 조사해 봤습니다.

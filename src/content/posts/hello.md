@@ -1,7 +1,7 @@
 ---
 title: 블로그를 시작하며
 description: nvim + Obsidian 노트를 Astro로 발행하는 psql 콘솔 블로그
-pubDatetime: 2026-08-15T00:00:00Z
+pubDatetime: 2026-08-15T00:00:00.000Z
 tags:
   - meta
 ---

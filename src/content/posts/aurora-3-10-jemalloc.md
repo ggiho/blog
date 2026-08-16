@@ -1,12 +1,15 @@
 ---
 title: Aurora 3.10 (MySQL 8.0.42) jmalloc
-description: 2025년 7월 30일부터 모든 리전에서 Aurora MySQL 3.10 버전으로 업그레이드 가능하다. 3.10 버전에서는 최대 스토리지 용량이 128TiB에서 256TiB로 증가한다. 또한 인 메모리 릴레이 로그…
+description: >-
+  2025년 7월 30일부터 모든 리전에서 Aurora MySQL 3.10 버전으로 업그레이드 가능하다. 3.10 버전에서는 최대 스토리지
+  용량이 128TiB에서 256TiB로 증가한다. 또한 인 메모리 릴레이 로그…
 pubDatetime: 2025-08-13T01:08:42.141Z
 tags:
   - aurora
   - mysql
   - aws
 ---
+
 ## Introduction
 
 2025년 7월 30일부터 모든 리전에서 Aurora MySQL 3.10 버전으로 업그레이드 가능하다. 

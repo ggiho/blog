@@ -1,12 +1,15 @@
 ---
 title: How to compile C & C++  in Mac OS
-description: "Mac에는 기본적으로 gcc(clang)가 설치되어 있다. shell gcc version Apple clang version 15.0.0 (clang 1500.1.0.2.5) Target: arm64 apple…"
+description: >-
+  Mac에는 기본적으로 gcc(clang)가 설치되어 있다. shell gcc version Apple clang version 15.0.0
+  (clang 1500.1.0.2.5) Target: arm64 apple…
 pubDatetime: 2024-10-03T12:18:43.367Z
 tags:
   - c
   - cpp
   - macos
 ---
+
 ## Introduction
 
 Mac에는 기본적으로 gcc(clang)가 설치되어 있다.

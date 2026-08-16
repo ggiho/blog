@@ -1,7 +1,7 @@
 ---
 title: CSV를 Parquet으로 한 방에 (duckdb)
 description: duckdb 한 줄로 CSV를 Parquet으로 변환하는 작은 셸 스크립트
-pubDatetime: 2026-05-25T09:00:00Z
+pubDatetime: 2026-05-25T09:00:00.000Z
 tags:
   - duckdb
   - data-engineering
@@ -20,7 +20,7 @@ usage() {
 [ "$#" -ne 1 ] && usage
 csvfile="$1"
 [ ! -f "$csvfile" ] && { echo "Error: file not found: $csvfile" >&2; exit 1; }
-[[ "$csvfile" != *.csv ]] && { echo "Error: input must be .csv" >&2; exit 1; }
+"$csvfile" != *.csv && { echo "Error: input must be .csv" >&2; exit 1; }
 
 parquetfile="${csvfile%.csv}.parquet"
 echo "Input CSV     : $csvfile"

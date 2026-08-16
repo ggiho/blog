@@ -1,12 +1,15 @@
 ---
 title: MySQL Monitoring
-description: 시작하며 PMM tip Alerting Contact points + New contact point Integration 항목을 Slack으로 선택 Webhook URL 입력 후 Test…
+description: >-
+  시작하며 PMM tip Alerting Contact points + New contact point Integration 항목을
+  Slack으로 선택 Webhook URL 입력 후 Test…
 pubDatetime: 2023-03-29T05:29:22.250Z
 tags:
   - mysql
   - monitoring
   - database
 ---
+
 ## 시작하며
 
 ## PMM

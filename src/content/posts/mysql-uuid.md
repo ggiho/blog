@@ -1,11 +1,14 @@
 ---
 title: UUID
-description: "(/notion/mysql uuid/img 1.png) sql select CHARGE ORDER ID,uuid(), replace(uuid(),' ',''),unhex(replace(uuid(),' ','')),…"
+description: >-
+  (/notion/mysql uuid/img 1.png) sql select CHARGE ORDER ID,uuid(),
+  replace(uuid(),' ',''),unhex(replace(uuid(),' ','')),…
 pubDatetime: 2023-09-12T05:33:08.521Z
 tags:
   - mysql
   - database
 ---
+
 ![](/notion/mysql-uuid/img-1.png)
 
 ```sql

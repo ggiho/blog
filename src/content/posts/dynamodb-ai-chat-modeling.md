@@ -1,12 +1,15 @@
 ---
 title: DynamoDB로 AI Chat 이력 모델링하기
-description: DynamoDB로 콜센터 상담 이력이 저장되고 있었지만, 내가 입사하기 전에 이미 구축된 영역이라 직접 만질 기회가 많지는 않았다. RDBMS처럼 매일 slow query를 보고 index를 조정하는 식의…
+description: >-
+  DynamoDB로 콜센터 상담 이력이 저장되고 있었지만, 내가 입사하기 전에 이미 구축된 영역이라 직접 만질 기회가 많지는 않았다.
+  RDBMS처럼 매일 slow query를 보고 index를 조정하는 식의…
 pubDatetime: 2026-05-11T05:57:51.651Z
 tags:
   - dynamodb
   - nosql
   - aws
 ---
+
 ## Introduction
 
 DynamoDB로 콜센터 상담 이력이 저장되고 있었지만, 내가 입사하기 전에 이미 구축된 영역이라 직접 만질 기회가 많지는 않았다. RDBMS처럼 매일 slow query를 보고 index를 조정하는 식의 모니터링을 하던 시스템도 아니어서, 사실상 “돌고 있으니까 잘 도는구나” 정도로만 보고 있었다.

@@ -1,12 +1,15 @@
 ---
 title: minikube + podman
-description: mongodb replica set을 테스트하기 위해서 docker compose를 이용해서 3개의 mongodb 인스턴스를 만들었다. 회사 pc에서도 테스트를 하기 위해서 동일한 과정을 진행했는데 무의식적으로…
+description: >-
+  mongodb replica set을 테스트하기 위해서 docker compose를 이용해서 3개의 mongodb 인스턴스를 만들었다. 회사
+  pc에서도 테스트를 하기 위해서 동일한 과정을 진행했는데 무의식적으로…
 pubDatetime: 2024-02-29T02:09:34.493Z
 tags:
   - kubernetes
   - podman
   - tools
 ---
+
 mongodb replica set을 테스트하기 위해서 docker-compose를 이용해서 3개의 mongodb 인스턴스를 만들었다.
 
 회사  pc에서도 테스트를 하기 위해서 동일한 과정을 진행했는데 무의식적으로 docker desktop을 설치하다가 라이센스가 유료로 전환된 것이 떠올랐다.

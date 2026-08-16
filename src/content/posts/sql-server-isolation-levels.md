@@ -1,12 +1,15 @@
 ---
 title: SQL Server 트랜잭션 격리수준
-description: 시작하며 SQL Server에서는 오라클과 마찬가지로 default isolation level이 Read Committed 로 설정 되어 있다. 그리고 ANSI 표준과는 다른 격리 수준을 제공하는데 같이…
+description: >-
+  시작하며 SQL Server에서는 오라클과 마찬가지로 default isolation level이 Read Committed 로 설정 되어
+  있다. 그리고 ANSI 표준과는 다른 격리 수준을 제공하는데 같이…
 pubDatetime: 2023-04-23T23:26:11.382Z
 tags:
   - sql-server
   - database
   - transaction
 ---
+
 ## 시작하며
 
 SQL Server에서는 오라클과 마찬가지로 default isolation level이 `Read Committed`로 설정 되어 있다.

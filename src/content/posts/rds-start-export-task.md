@@ -1,12 +1,15 @@
 ---
 title: RDS start export task
-description: 스냅샷 생성 aws rds create db cluster snapshot \ db cluster snapshot identifier dev cluster snapshot 2024 09 24 \ db cluster…
+description: >-
+  스냅샷 생성 aws rds create db cluster snapshot \ db cluster snapshot identifier dev
+  cluster snapshot 2024 09 24 \ db cluster…
 pubDatetime: 2024-09-24T06:00:37.804Z
 tags:
   - aws
   - rds
   - data-engineering
 ---
+
 #### 스냅샷 생성
 
 aws rds create-db-cluster-snapshot \

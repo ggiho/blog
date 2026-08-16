@@ -1,7 +1,7 @@
 ---
 title: Neovim을 노트 작성 도구로 쓰기
 description: obsidian.nvim + render-markdown + 터미널 캡처로 만든 마크다운 노트 워크플로우
-pubDatetime: 2026-07-10T09:00:00Z
+pubDatetime: 2026-07-10T09:00:00.000Z
 tags:
   - nvim
   - notes
@@ -12,7 +12,7 @@ tags:
 
 ## 편집
 
-- **obsidian.nvim** — 위키링크(`[[ ]]`)·백링크·체크박스
+- **obsidian.nvim** — 위키링크(``)·백링크·체크박스
 - **render-markdown.nvim** — 에디터 안에서 헤딩·표·코드블록을 예쁘게 렌더
 
 ## 캡처

@@ -1,12 +1,15 @@
 ---
 title: MySQL 5.7 Orphan table
-description: Aurora 3 업그레이드 중 좀비 테이블 조치 회고 MySQL upgrade precheck log에서 에러가 발생했다. (/notion/mysql 5 7 orphan table/img 1.png) MySQL…
+description: >-
+  Aurora 3 업그레이드 중 좀비 테이블 조치 회고 MySQL upgrade precheck log에서 에러가 발생했다.
+  (/notion/mysql 5 7 orphan table/img 1.png) MySQL…
 pubDatetime: 2024-08-06T01:16:27.702Z
 tags:
   - mysql
   - troubleshooting
   - database
 ---
+
 ## Introduction
 
 Aurora 3 업그레이드 중 좀비 테이블 조치 회고

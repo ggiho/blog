@@ -1,7 +1,7 @@
 ---
 title: DB 접근 거버넌스 — 상용 솔루션 vs 자체 구축
-description: DB 접근 제어에 필요한 것들(SSO·최소권한·감사·마스킹·승인)과, 상용 도입과 자체 구축 사이의 트레이드오프
-pubDatetime: 2026-08-03T09:00:00Z
+description: 'DB 접근 제어에 필요한 것들(SSO·최소권한·감사·마스킹·승인)과, 상용 도입과 자체 구축 사이의 트레이드오프'
+pubDatetime: 2026-08-03T09:00:00.000Z
 tags:
   - database
   - security

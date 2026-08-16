@@ -1,12 +1,15 @@
 ---
-title: "[MySQL 성능 최적화] 02. 신뢰성 엔지니어링 환경에서의 모니터링"
-description: 시작하며 스터디의 교재는 Real MySQL을 사용하지만 책을 한 권만 읽은 사람이 제일 무섭다는 말이 있듯이 다른 책도 읽을 필요성을 느껴서 O’relly의 High Performance MySQL 4th를…
+title: '[MySQL 성능 최적화] 02. 신뢰성 엔지니어링 환경에서의 모니터링'
+description: >-
+  시작하며 스터디의 교재는 Real MySQL을 사용하지만 책을 한 권만 읽은 사람이 제일 무섭다는 말이 있듯이 다른 책도 읽을 필요성을
+  느껴서 O’relly의 High Performance MySQL 4th를…
 pubDatetime: 2023-05-11T11:09:54.079Z
 tags:
   - mysql
   - monitoring
   - database
 ---
+
 ## 시작하며
 
 스터디의 교재는 Real MySQL을 사용하지만 책을 한 권만 읽은 사람이 제일 무섭다는 말이 있듯이 다른 책도 읽을 필요성을 느껴서 O’relly의 High Performance MySQL 4th를 번역한 MySQL 성능 최적화 책을 구매했다.

@@ -1,7 +1,7 @@
 ---
 title: just로 DBA 반복 작업 자동화하기
 description: justfile로 mysqlsh 덤프·유저/grants 백업 같은 반복 작업을 파라미터화해 팀 표준으로
-pubDatetime: 2026-08-10T09:00:00Z
+pubDatetime: 2026-08-10T09:00:00.000Z
 tags:
   - mysql
   - tools

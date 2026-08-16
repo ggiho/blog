@@ -1,7 +1,9 @@
 ---
 title: MariaDB/MySQL 백업·복구 실전 정리 — mariabackup와 mysqldump
-description: mariabackup 물리 백업 전체 흐름, mysqldump 핵심 옵션(OOM 회피), 덤프에서 특정 테이블만 추출, 복구 후 복제 연결까지
-pubDatetime: 2026-08-13T09:00:00Z
+description: >-
+  mariabackup 물리 백업 전체 흐름, mysqldump 핵심 옵션(OOM 회피), 덤프에서 특정 테이블만 추출, 복구 후 복제
+  연결까지
+pubDatetime: 2026-08-13T09:00:00.000Z
 tags:
   - mariadb
   - mysql

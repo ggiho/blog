@@ -1,11 +1,14 @@
 ---
 title: Retrieval of the RSA public key is not enabled for insecure connections
-description: "(/notion/mysql rsa public key error/img 1.png) MySQL: Retrieval of the RSA public key is not enabled for insecure…"
+description: >-
+  (/notion/mysql rsa public key error/img 1.png) MySQL: Retrieval of the RSA
+  public key is not enabled for insecure…
 pubDatetime: 2024-02-26T07:38:09.813Z
 tags:
   - mysql
   - troubleshooting
 ---
+
 ![](/notion/mysql-rsa-public-key-error/img-1.png)
 
 MySQL: Retrieval of the RSA public key is not enabled for insecure connections.

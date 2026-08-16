@@ -1,7 +1,7 @@
 ---
 title: AI로 데이터베이스에 안전하게 접근하기
-description: LLM·MCP로 DB를 다룰 때 지켜야 할 원칙 — 최소 권한, 읽기 전용, PII 마스킹, 쿼리 가드레일, 감사
-pubDatetime: 2026-08-11T09:00:00Z
+description: 'LLM·MCP로 DB를 다룰 때 지켜야 할 원칙 — 최소 권한, 읽기 전용, PII 마스킹, 쿼리 가드레일, 감사'
+pubDatetime: 2026-08-11T09:00:00.000Z
 tags:
   - ai
   - mcp

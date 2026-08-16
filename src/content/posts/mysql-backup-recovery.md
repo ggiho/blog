@@ -1,12 +1,15 @@
 ---
 title: MySQL 백업 복구 정리
-description: 시작하며 MySQL(MariaDB)에서 많이 쓰이는 backup 도구는 mysqldump와 xtrabackup(mariabackup)이 있다. 간단한 사용 방식들을 정리해 본다. mysqldump MySQL을…
+description: >-
+  시작하며 MySQL(MariaDB)에서 많이 쓰이는 backup 도구는 mysqldump와 xtrabackup(mariabackup)이
+  있다. 간단한 사용 방식들을 정리해 본다. mysqldump MySQL을…
 pubDatetime: 2023-04-11T00:22:03.802Z
 tags:
   - mysql
   - backup
   - database
 ---
+
 ## 시작하며
 
 MySQL(MariaDB)에서 많이 쓰이는 backup 도구는 mysqldump와 xtrabackup(mariabackup)이 있다. 간단한 사용 방식들을 정리해 본다.

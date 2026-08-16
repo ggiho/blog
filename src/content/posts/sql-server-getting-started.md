@@ -1,11 +1,14 @@
 ---
 title: SQL Sever(mssql) 시작하기
-description: SQL Sever를 설치하고 사용해보자 (/notion/sql server getting started/img 1.png) CentOS 8 SQL Server 2022 Install 설치 가이드를 참고해서…
+description: >-
+  SQL Sever를 설치하고 사용해보자 (/notion/sql server getting started/img 1.png) CentOS 8
+  SQL Server 2022 Install 설치 가이드를 참고해서…
 pubDatetime: 2023-04-23T01:58:45.627Z
 tags:
   - sql-server
   - database
 ---
+
 ## Introduction
 
 SQL Sever를 설치하고 사용해보자

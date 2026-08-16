@@ -1,11 +1,14 @@
 ---
 title: MySQL 계정 정보 모를 때
-description: / Introduction 쓸 일이 잘 없는 것 같다가도 종종 사용할 일이 생기곤 한다. sql stop mysqld systemctl stop mysqld mysqld safe replacement…
+description: >-
+  / Introduction 쓸 일이 잘 없는 것 같다가도 종종 사용할 일이 생기곤 한다. sql stop mysqld systemctl
+  stop mysqld mysqld safe replacement…
 pubDatetime: 2024-02-18T14:13:53.365Z
 tags:
   - mysql
   - database
 ---
+
 /
 
 ## Introduction

@@ -1,12 +1,15 @@
 ---
 title: 이기종 디비 링크 기능 파이썬으로 구현하기
-description: 시작하며 oracle to mariadb 전환 프로젝트를 하면서 기존에 oracle 끼리 db link를 통한 데이터 공유를 사용할 수 없게 되었습니다. db link도 이기종 데이터베이스 간의 연결을 지원하지만…
+description: >-
+  시작하며 oracle to mariadb 전환 프로젝트를 하면서 기존에 oracle 끼리 db link를 통한 데이터 공유를 사용할 수 없게
+  되었습니다. db link도 이기종 데이터베이스 간의 연결을 지원하지만…
 pubDatetime: 2023-03-31T00:17:59.969Z
 tags:
   - python
   - database
   - data-engineering
 ---
+
 ## 시작하며
 
 oracle to mariadb 전환 프로젝트를 하면서 기존에 oracle 끼리 db link를 통한 데이터 공유를 사용할 수 없게 되었습니다. db link도 이기종 데이터베이스 간의 연결을 지원하지만 오라클 10.2 버전을 사용 중이라 한계에 부딪혔습니다. MariaDB에서 지원하는 federated X 스토리지 엔진의 사용도 고려 하였지만 메모리 누수 이슈로 대안을 찾아야 했습니다.

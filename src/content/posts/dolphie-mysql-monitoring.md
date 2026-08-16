@@ -1,12 +1,15 @@
 ---
 title: Dolphie for MySQL monitoring
-description: Dolphie Dolphie is real time monitoring tool for MySQL. install shell pip pip install dolphie brew brew install dolphie…
+description: >-
+  Dolphie Dolphie is real time monitoring tool for MySQL. install shell pip pip
+  install dolphie brew brew install dolphie…
 pubDatetime: 2024-07-26T06:15:06.402Z
 tags:
   - mysql
   - monitoring
   - tools
 ---
+
 ## Dolphie
 
 Dolphie is real time monitoring tool for MySQL.

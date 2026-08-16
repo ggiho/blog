@@ -1,7 +1,7 @@
 ---
 title: Office Script로 엑셀 리포트 자동화하기
-description: 연결된 데이터 소스 새로고침부터 가공·정리까지, Office Script + Power Automate로 반복 리포팅 없애기
-pubDatetime: 2026-08-07T09:00:00Z
+description: '연결된 데이터 소스 새로고침부터 가공·정리까지, Office Script + Power Automate로 반복 리포팅 없애기'
+pubDatetime: 2026-08-07T09:00:00.000Z
 tags:
   - excel
   - office-script

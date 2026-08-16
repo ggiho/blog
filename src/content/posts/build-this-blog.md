@@ -1,12 +1,12 @@
 ---
 title: 이 블로그를 만든 방법 — Astro + Cloudflare Pages
 description: Obsidian 볼트의 글을 골라 Astro로 빌드하고 Cloudflare Pages에 무료로 배포하기
-pubDatetime: 2026-08-14T09:00:00Z
-featured: true
+pubDatetime: 2026-08-14T09:00:00.000Z
 tags:
   - astro
   - cloudflare
   - meta
+featured: true
 ---
 
 이 블로그는 "psql 콘솔" 컨셉의 Astro 사이트다. 파이프라인은 단순하다.

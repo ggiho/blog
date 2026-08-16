@@ -1,7 +1,9 @@
 ---
 title: MySQL 모니터링 스택 구축 — Prometheus/exporter와 PMM
-description: pull vs push 개념부터 node/mysqld exporter + Prometheus + Grafana, Percona PMM, 그리고 꼭 봐야 할 지표까지
-pubDatetime: 2026-08-12T09:00:00Z
+description: >-
+  pull vs push 개념부터 node/mysqld exporter + Prometheus + Grafana, Percona PMM,
+  그리고 꼭 봐야 할 지표까지
+pubDatetime: 2026-08-12T09:00:00.000Z
 tags:
   - mysql
   - monitoring

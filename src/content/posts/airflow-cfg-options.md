@@ -1,11 +1,14 @@
 ---
 title: airflow.cfg에서 나중에 다시 보게 되는 옵션들
-description: Airflow를 설치형으로 쓰면 결국 airflow.cfg 를 다시 열어보게 된다. 처음 설치할 때는 기본값으로도 잘 떠서 넘어가게 되는데, API를 호출하거나 task를 병렬로 돌리거나 metadata…
+description: >-
+  Airflow를 설치형으로 쓰면 결국 airflow.cfg 를 다시 열어보게 된다. 처음 설치할 때는 기본값으로도 잘 떠서 넘어가게 되는데,
+  API를 호출하거나 task를 병렬로 돌리거나 metadata…
 pubDatetime: 2026-05-11T05:53:52.500Z
 tags:
   - airflow
   - data-engineering
 ---
+
 ## Introduction
 
 Airflow를 설치형으로 쓰면 결국 `airflow.cfg`를 다시 열어보게 된다.

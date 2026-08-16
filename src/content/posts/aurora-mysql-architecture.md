@@ -1,12 +1,15 @@
 ---
 title: Aurora MySQL Architecture를 다시 정리해보기
-description: Aurora MySQL을 쓰다 보면 겉으로는 MySQL처럼 보이는데, 운영 관점에서는 일반 MySQL과 다른 지점이 꽤 많다. 처음에는 “MySQL 호환 managed database” 정도로 생각하기 쉽다.…
+description: >-
+  Aurora MySQL을 쓰다 보면 겉으로는 MySQL처럼 보이는데, 운영 관점에서는 일반 MySQL과 다른 지점이 꽤 많다. 처음에는
+  “MySQL 호환 managed database” 정도로 생각하기 쉽다.…
 pubDatetime: 2026-05-11T06:25:57.947Z
 tags:
   - aurora
   - mysql
   - aws
 ---
+
 ## Introduction
 
 Aurora MySQL을 쓰다 보면 겉으로는 MySQL처럼 보이는데, 운영 관점에서는 일반 MySQL과 다른 지점이 꽤 많다.

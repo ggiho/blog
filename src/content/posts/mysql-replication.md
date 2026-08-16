@@ -1,12 +1,15 @@
 ---
 title: MySQL replication 동작 원리
-description: 슬레이브에서 어떤 빈로그 포지션을 보고 데이터를 동기화 해야 하는가에 대한 질문에 대해서 ???? xtrabackup info에서 binlog position으로 동기화 하는거 아닌가라고 했었는데 스터디 멤버에게…
+description: >-
+  슬레이브에서 어떤 빈로그 포지션을 보고 데이터를 동기화 해야 하는가에 대한 질문에 대해서 ???? xtrabackup info에서
+  binlog position으로 동기화 하는거 아닌가라고 했었는데 스터디 멤버에게…
 pubDatetime: 2023-05-05T15:33:39.930Z
 tags:
   - mysql
   - replication
   - database
 ---
+
 슬레이브에서 어떤 빈로그 포지션을 보고 데이터를 동기화 해야 하는가에 대한 질문에 대해서
 
 ????

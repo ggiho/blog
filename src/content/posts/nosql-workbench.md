@@ -1,7 +1,7 @@
 ---
 title: NoSQL Workbench로 DynamoDB 데이터 모델링하기
 description: AWS 공식 무료 GUI로 DynamoDB 테이블 설계·쿼리 시각화·샘플 데이터까지
-pubDatetime: 2026-08-04T09:00:00Z
+pubDatetime: 2026-08-04T09:00:00.000Z
 tags:
   - dynamodb
   - aws

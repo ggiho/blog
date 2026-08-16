@@ -1,12 +1,15 @@
 ---
 title: MySQL Online DDL 정리
-description: MySQL을 운영하다 보면 결국 ALTER TABLE 을 해야 하는 순간이 온다. 컬럼을 추가하거나, 인덱스를 만들거나, 컬럼 타입을 바꾸거나, PK를 바꿔야 할 때가 있다. 문제는 DDL은 자주 하지 않지만 한…
+description: >-
+  MySQL을 운영하다 보면 결국 ALTER TABLE 을 해야 하는 순간이 온다. 컬럼을 추가하거나, 인덱스를 만들거나, 컬럼 타입을
+  바꾸거나, PK를 바꿔야 할 때가 있다. 문제는 DDL은 자주 하지 않지만 한…
 pubDatetime: 2026-05-11T06:28:19.484Z
 tags:
   - mysql
   - database
   - ddl
 ---
+
 ## Introduction
 
 MySQL을 운영하다 보면 결국 `ALTER TABLE`을 해야 하는 순간이 온다.

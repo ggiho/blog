@@ -1,12 +1,15 @@
 ---
 title: MySQL adaptive hash index
-description: 몇년 전 MySQL 8.0 버전을 스터디할 때 Adaptive hash index(AHI)에 대한 주제로 토론을 했던 적이 있다. 당시에는 8.0 버전뿐 아니라 MySQL에 대한 이해도가 전반적으로 떨어졌을 때라서…
+description: >-
+  몇년 전 MySQL 8.0 버전을 스터디할 때 Adaptive hash index(AHI)에 대한 주제로 토론을 했던 적이 있다. 당시에는
+  8.0 버전뿐 아니라 MySQL에 대한 이해도가 전반적으로 떨어졌을 때라서…
 pubDatetime: 2025-08-15T14:24:05.220Z
 tags:
   - mysql
   - database
   - internals
 ---
+
 ## Introduction
 
 몇년 전 MySQL 8.0 버전을 스터디할 때 Adaptive hash index(AHI)에 대한 주제로 토론을 했던 적이 있다.

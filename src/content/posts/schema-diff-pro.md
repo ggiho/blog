@@ -1,11 +1,14 @@
 ---
 title: Schema Diff Pro
-description: 기존에 사용하던 데이터베이스 스키마 비교 도구를 claude와 함께 개선하며 pro라는 이름을 덧붙여서 Schema Diff Pro 라는 거창한 이름으로 탄생하게 되었다. 최초에 만들었던 목적은 여러 환경의 스키마…
+description: >-
+  기존에 사용하던 데이터베이스 스키마 비교 도구를 claude와 함께 개선하며 pro라는 이름을 덧붙여서 Schema Diff Pro 라는
+  거창한 이름으로 탄생하게 되었다. 최초에 만들었던 목적은 여러 환경의 스키마…
 pubDatetime: 2025-07-28T08:07:43.267Z
 tags:
   - mysql
   - tools
 ---
+
 ## Introduction
 
 기존에 사용하던 데이터베이스 스키마 비교 도구를 claude와 함께 개선하며 pro라는 이름을 덧붙여서 `Schema Diff Pro`라는 거창한 이름으로 탄생하게 되었다.

@@ -1,7 +1,7 @@
 ---
 title: 사내 DB 운영 포털을 만들며 — 기능과 설계
 description: 콘솔·스크립트·수작업에 흩어진 DBA 업무를 한 곳으로. 스키마 탐색부터 승인 워크플로우·알림·멀티계정 관리까지 만들며 정리한 것들
-pubDatetime: 2026-08-15T12:00:00Z
+pubDatetime: 2026-08-15T12:00:00.000Z
 tags:
   - database
   - platform

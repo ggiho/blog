@@ -1,7 +1,7 @@
 ---
 title: DynamoDB 보안 점검 체크리스트
-description: 암호화, IAM 최소 권한, 네트워크, 백업/삭제 방지, 감사까지 — DynamoDB를 운영에 올리기 전 확인할 것들
-pubDatetime: 2026-08-08T09:00:00Z
+description: '암호화, IAM 최소 권한, 네트워크, 백업/삭제 방지, 감사까지 — DynamoDB를 운영에 올리기 전 확인할 것들'
+pubDatetime: 2026-08-08T09:00:00.000Z
 tags:
   - dynamodb
   - aws

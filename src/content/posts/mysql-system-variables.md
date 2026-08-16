@@ -1,11 +1,14 @@
 ---
 title: 시스템 변수
-description: "port: MySQL 서버가 클라이언트 연결을 수신하는 포트입니다. socket: MySQL 서버가 로컬 연결을 위해 수신 대기하는 Unix 소켓 파일 경로입니다. user 및 password: MySQL 서버에…"
+description: >-
+  port: MySQL 서버가 클라이언트 연결을 수신하는 포트입니다. socket: MySQL 서버가 로컬 연결을 위해 수신 대기하는 Unix
+  소켓 파일 경로입니다. user 및 password: MySQL 서버에…
 pubDatetime: 2023-04-13T05:13:10.758Z
 tags:
   - mysql
   - database
 ---
+
 port: MySQL 서버가 클라이언트 연결을 수신하는 포트입니다.
 socket: MySQL 서버가 로컬 연결을 위해 수신 대기하는 Unix 소켓 파일 경로입니다.
 user 및 password: MySQL 서버에 연결하는 데 사용되는 수출자 사용자의 사용자 이름과 암호입니다.

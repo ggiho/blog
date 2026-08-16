@@ -1,12 +1,15 @@
 ---
 title: AWS DMS 테스트하면서 실제로 막혔던 지점들
-description: AWS DMS를 테스트하면서 생각보다 여러 지점에서 막혔다. 처음에는 source와 target endpoint를 만들고, replication instance를 하나 띄운 다음, migration task만 잘…
+description: >-
+  AWS DMS를 테스트하면서 생각보다 여러 지점에서 막혔다. 처음에는 source와 target endpoint를 만들고,
+  replication instance를 하나 띄운 다음, migration task만 잘…
 pubDatetime: 2026-05-11T05:53:50.754Z
 tags:
   - dms
   - aws
   - data-engineering
 ---
+
 ## Introduction
 
 AWS DMS를 테스트하면서 생각보다 여러 지점에서 막혔다.
