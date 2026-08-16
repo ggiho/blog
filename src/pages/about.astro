@@ -26,18 +26,17 @@ import Footer from "@/components/Footer.astro";
       <h2 class="text-prompt mt-8 mb-3 font-semibold">## 하는 일</h2>
       <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
         <li>
-          RDB·NoSQL 운영 — Aurora MySQL·DynamoDB·MariaDB 고가용성·성능·비용 효율
+          대규모 데이터베이스 운영 — Aurora MySQL·DynamoDB·MariaDB의 고가용성과 안정성 관리
         </li>
-        <li>성능 튜닝 & 쿼리 최적화 — 슬로우 쿼리·인덱스 재설계, 필요하면 엔진 소스까지</li>
-        <li>NoSQL 데이터 모델링 — DynamoDB 액세스 패턴·단일 테이블 설계</li>
-        <li>모니터링 구축 — Prometheus·Grafana 대시보드, Slack 알림</li>
         <li>
-          운영 자동화 · 툴링 — 덤프·grants·테스트 데이터(PII 마스킹) 스크립트 표준화
+          성능 튜닝 & 쿼리 최적화 — 슬로우 쿼리·실행계획·인덱스 분석, 필요하면 엔진 소스까지
         </li>
-        <li>데이터 파이프라인 · 리포팅 — DW 집계, 엑셀·리포트 자동화(Office Script)</li>
-        <li>보안 · 컴플라이언스 — ISMS 인증 심사 대응, DB 취약점 진단</li>
-        <li>클라우드 거버넌스 — 리소스 태깅 표준·비용 최적화(sleep 스케줄)</li>
-        <li>크로스팀 인에이블먼트 — "AI로 DB 안전하게 접근하기" 발표·가이드</li>
+        <li>데이터 모델링 & 스키마 설계 — RDB 정규화부터 DynamoDB 액세스 패턴까지</li>
+        <li>장애 대응 & 신뢰성 관리 — 모니터링 기반 원인 분석과 복구, 재발 방지</li>
+        <li>백업·복구 & 데이터 보호 — 백업 정책 수립, 재해 복구(DR) 대비</li>
+        <li>보안 & 컴플라이언스 — 접근 제어·암호화, ISMS 인증 대응, 취약점 진단</li>
+        <li>클라우드 거버넌스 & 비용 최적화 — 리소스 태깅 표준, 인스턴스 스펙 최적화</li>
+        <li>운영 자동화 — 반복적인 DBA 작업을 스크립트·도구로 표준화</li>
       </ul>
 
       <h2 class="text-prompt mt-8 mb-3 font-semibold">## 대표 성과</h2>
@@ -56,12 +55,20 @@ import Footer from "@/components/Footer.astro";
           M‑S‑S 복제 + 3노드 MaxScale, failover 테스트로 무중단 검증
         </li>
         <li>
+          <span class="text-accent">레거시 ETL → AWS DMS 현대화</span> — 기존 ETL
+          파이프라인을 DMS(CDC)로 전환해 마이그레이션 시간 단축·데이터 정합성 향상
+        </li>
+        <li>
+          <span class="text-accent">EC2 MySQL → Amazon RDS 이관</span> — 시스템 안정성과
+          유지보수 자동화·확장성 개선
+        </li>
+        <li>
           <span class="text-accent">운영 자동화</span> — 데이터 추출·정기 리포트 배치화로
           월 ~20시간 수작업 절감, 정확도 향상
         </li>
         <li>
-          <span class="text-accent">클라우드 전환</span> — EC2 MySQL→RDS 이관 및 레거시
-          ETL→DMS 전환으로 안정성·데이터 정합성·확장성 개선
+          <span class="text-accent">DB 보안 취약점 진단 & ISMS 대응</span> — 진단 기준에
+          따라 점검 수행, 접근 제어·암호화 정책 등 컴플라이언스 지원
         </li>
       </ul>
 
