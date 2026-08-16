@@ -35,11 +35,11 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10);
                   <time class="text-muted-foreground shrink-0 text-xs sm:w-28">
                     {fmt(p.data.pubDatetime)}
                   </time>
-                  <span class="text-accent group-hover:underline">
+                  <span class="text-foreground group-hover:underline">
                     {p.data.title}
                   </span>
                   {p.data.tags?.length ? (
-                    <span class="text-muted-foreground shrink-0 text-xs sm:ms-auto">
+                    <span class="text-accent shrink-0 text-xs sm:ms-auto">
                       {p.data.tags.slice(0, 3).join(", ")}
                     </span>
                   ) : null}
