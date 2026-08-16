@@ -1,0 +1,34 @@
+---
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+  headings: MarkdownHeading[];
+  minHeadings?: number;
+};
+
+const { headings, minHeadings = 3 } = Astro.props;
+const items = headings.filter(h => h.depth === 2 || h.depth === 3);
+const show = items.length >= minHeadings;
+---
+
+{
+  show && (
+    <details class="toc border-border bg-muted/30 my-8 border text-sm" open>
+      <summary class="text-prompt cursor-pointer px-4 py-2 select-none">
+        -- contents
+      </summary>
+      <ul class="px-4 pt-1 pb-3">
+        {items.map(h => (
+          <li class={h.depth === 3 ? "ms-5" : ""}>
+            <a
+              href={`#${h.slug}`}
+              class="text-muted-foreground hover:text-accent inline-block py-1 no-underline"
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )
+}

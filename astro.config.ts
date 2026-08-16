@@ -19,6 +19,18 @@ import {
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import config from "./astro-paper.config";
 
+// 읽기 시간 추정 — 한글 혼합 기준 대략 분당 500자
+function remarkReadingTime() {
+  const nodeText = (node: any): string =>
+    node.value ??
+    (node.children ? node.children.map(nodeText).join(" ") : "");
+  return (tree: any, file: any) => {
+    const chars = nodeText(tree).replace(/\s+/g, "").length;
+    const minutes = Math.max(1, Math.round(chars / 500));
+    file.data.astro.frontmatter.minutesRead = `${minutes} min`;
+  };
+}
+
 export default defineConfig({
   site: config.site.url,
   integrations: [
@@ -40,6 +52,7 @@ export default defineConfig({
       remarkPlugins: [
         remarkToc,
         [remarkCollapse, { test: "Table of contents" }],
+        remarkReadingTime,
       ],
       rehypePlugins: [rehypeCallouts],
     }),
