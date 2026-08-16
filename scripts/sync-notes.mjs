@@ -42,6 +42,11 @@ function stripWiki(body) {
 
 async function main() {
 	await fs.mkdir(OUT, { recursive: true });
+	// 볼트를 단일 소스로: 기존 생성물을 비우고 다시 채운다.
+	// → 볼트에서 글을 지우면 blog에서도 사라진다 (재생성 방식).
+	for (const f of await fs.readdir(OUT)) {
+		if (/\.mdx?$/.test(f)) await fs.rm(path.join(OUT, f));
+	}
 	const stats = { scanned: 0, published: 0, skipped: 0 };
 	for await (const file of walk(VAULT)) {
 		stats.scanned++;
