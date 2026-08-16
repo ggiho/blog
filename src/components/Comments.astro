@@ -24,7 +24,7 @@
 
   const themeNow = () =>
     document.documentElement.getAttribute("data-theme") === "dark"
-      ? "dark_dimmed"
+      ? "transparent_dark" // 사이트 배경(잉크)을 그대로 상속 → 밝은 박스 이질감 제거
       : "light";
 
   function loadGiscus() {
