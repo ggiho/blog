@@ -17,70 +17,50 @@ import Footer from "@/components/Footer.astro";
       <div class="space-y-4">
         <p>
           Amazon Aurora MySQL·DynamoDB·MariaDB를 운영하는 DBA입니다. 고가용성 아키텍처,
-          클라우드 마이그레이션, 성능 튜닝, 그리고 운영 자동화를 주로 다룹니다. 필요하면
-          MySQL 소스코드까지 파고듭니다.
+          클라우드 마이그레이션, 성능 튜닝, 운영 자동화를 주로 다룹니다. 필요하면 MySQL
+          소스코드까지 파고듭니다.
         </p>
         <p>글은 Neovim과 터미널에서 쓰고, 여기서 발행합니다.</p>
       </div>
 
-      <h2 class="text-prompt mt-8 mb-4 font-semibold">## Experience</h2>
+      <h2 class="text-prompt mt-8 mb-3 font-semibold">## 하는 일</h2>
+      <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
+        <li>
+          RDB·NoSQL 운영 — Aurora MySQL·DynamoDB·MariaDB 고가용성, 성능 튜닝, 비용 효율화
+        </li>
+        <li>클라우드 마이그레이션 — EC2 MySQL→RDS 이관, 레거시 ETL을 AWS DMS로 전환</li>
+        <li>
+          HA 아키텍처 — M‑S‑S 복제 + 다중 노드 MaxScale로 읽기/쓰기 분리·자동 failover
+        </li>
+        <li>모니터링 구축 — Prometheus·Grafana 대시보드, Slack 알림</li>
+        <li>운영 자동화 — Python/Bash로 모니터링·계정 프로비저닝·로그 분석·리포트</li>
+        <li>보안/컴플라이언스 — ISMS 인증 심사 대응 (접근 제어·암호화 정책)</li>
+      </ul>
 
-      <div class="mb-6">
-        <p class="font-semibold">
-          Sr. Database Administrator ·
-          <span class="text-accent">Asurion</span>
-        </p>
-        <p class="text-muted-foreground mb-2 font-mono text-xs">
-          2023.07 – 현재
-        </p>
-        <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
-          <li>
-            Amazon Aurora MySQL·DynamoDB 운영 — 고가용성, 성능 튜닝, 프로덕션 비용 효율화
-          </li>
-          <li>
-            레거시 ETL 파이프라인을 AWS DMS로 전환 — 마이그레이션 시간 단축, 데이터
-            정합성 향상
-          </li>
-          <li>
-            EC2 기반 MySQL → Amazon RDS 이관 — 시스템 안정성·유지보수 자동화·확장성 개선
-          </li>
-          <li>
-            Python으로 DBA 반복 작업 자동화 — 모니터링 알림, 계정 프로비저닝, 로그 분석
-          </li>
-          <li>
-            ISMS 인증 심사 대응 — DB 컴플라이언스, 접근 제어, 암호화 정책 지원
-          </li>
-          <li>백업/복구·모니터링·튜닝·쿼리 최적화 (RDB + NoSQL)</li>
-        </ul>
-      </div>
-
-      <div class="mb-2">
-        <p class="font-semibold">
-          Database Administrator ·
-          <span class="text-accent">Little Fox</span>
-        </p>
-        <p class="text-muted-foreground mb-2 font-mono text-xs">
-          2021.11 – 2023.05
-        </p>
-        <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
-          <li>
-            Oracle 11g → MariaDB 10.5 전면 마이그레이션 — Python 이관 스크립트로 100+
-            스키마 무손실 이전(수 TB), 스키마·프로시저·트리거·파티션 변환 후 쿼리 튜닝
-          </li>
-          <li>
-            모니터링 플랫폼 구축 — Prometheus + Grafana로 30+ 대시보드, Slack 웹훅 알림으로
-            MTTR 40%↓
-          </li>
-          <li>
-            HA 아키텍처 — 베어메탈 MariaDB 튜닝, M‑S‑S 복제 + 3노드 MaxScale(읽기/쓰기
-            분리·자동 failover), failover 테스트로 검증
-          </li>
-          <li>
-            운영 자동화 — Python/Bash 배치로 데이터 추출·일/주간 리포트 자동화 (월 ~20시간
-            절감)
-          </li>
-        </ul>
-      </div>
+      <h2 class="text-prompt mt-8 mb-3 font-semibold">## 대표 성과</h2>
+      <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
+        <li>
+          <span class="text-accent">Oracle 11g → MariaDB 10.5 전면 마이그레이션</span> —
+          Python 이관 스크립트로 100+ 스키마 무손실 이전(수 TB), 스키마·프로시저·트리거·파티션
+          변환 후 쿼리 튜닝으로 성능 회복·개선
+        </li>
+        <li>
+          <span class="text-accent">모니터링 플랫폼 구축</span> — Prometheus + Grafana로
+          30+ 맞춤 대시보드, Slack 웹훅 알림으로 MTTR 40%↓
+        </li>
+        <li>
+          <span class="text-accent">HA 아키텍처 설계·검증</span> — 베어메탈 MariaDB 튜닝,
+          M‑S‑S 복제 + 3노드 MaxScale, failover 테스트로 무중단 검증
+        </li>
+        <li>
+          <span class="text-accent">운영 자동화</span> — 데이터 추출·정기 리포트 배치화로
+          월 ~20시간 수작업 절감, 정확도 향상
+        </li>
+        <li>
+          <span class="text-accent">클라우드 전환</span> — EC2 MySQL→RDS 이관 및 레거시
+          ETL→DMS 전환으로 안정성·데이터 정합성·확장성 개선
+        </li>
+      </ul>
 
       <h2 class="text-prompt mt-8 mb-3 font-semibold">## 이 블로그는</h2>
       <p class="text-muted-foreground">
@@ -95,12 +75,6 @@ import Footer from "@/components/Footer.astro";
           href="https://github.com/ggiho"
           target="_blank"
           rel="noreferrer">github</a
-        > ·
-        <a
-          class="text-accent hover:underline"
-          href="https://www.linkedin.com/in/gihoseong/"
-          target="_blank"
-          rel="noreferrer">linkedin</a
         >
       </p>
     </section>
