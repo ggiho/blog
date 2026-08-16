@@ -1,90 +1,52 @@
 ---
-title: CAP 이론
-description: >-
-  CAP 이론 (CAP Theorem) In a distributed system, you can choose at most two out
-  of three guarantees: Consistency,…
-pubDatetime: 2025-07-14T10:40:41.906Z
+title: CAP 이론 — 파티션이 나면 뭘 포기할 것인가
+description: 'CAP을 외우는 대신 "네트워크가 끊겼을 때 내 시스템이 뭘 하는가"로 이해한 정리. CP/AP, CA의 함정, PACELC까지'
+pubDatetime: 2025-07-14T00:00:00.000Z
 tags:
   - distributed
   - theory
 ---
 
-## Introduction
+CAP은 분산 시스템 공부하면 제일 먼저 나오는데, 세 글자 외우는 걸로 끝내면 실무에 안 붙는다. 나는 "**네트워크가 끊겼을 때 내 시스템이 무슨 선택을 하는가**"로 이해하는 게 제일 와닿았다.
 
-### 📌 CAP 이론 (CAP Theorem)
+## 세 글자부터
 
-> In a distributed system, you can choose at most two out of three guarantees: Consistency, Availability, and Partition Tolerance.
+- **C (Consistency)** — 어느 노드에 물어도 같은(최신) 데이터가 나온다
+- **A (Availability)** — 노드가 살아 있으면 어쨌든 응답은 한다
+- **P (Partition tolerance)** — 노드 사이 통신이 끊겨도 시스템이 굴러간다
 
----
+CAP은 "셋 중 둘만"이라고들 하는데, 이 말이 오해를 부른다. 분산 시스템에서 **P는 선택이 아니다.** 네트워크는 언젠가 끊기고, 그걸 견디는 건 기본 전제다. 그러니 실제 선택지는 **파티션이 났을 때 C를 지킬 거냐, A를 지킬 거냐** 딱 이거다.
 
-#### 1. ✅ 핵심 특성 정의
+## CP vs AP — 끊겼을 때의 선택
 
----
+- **CP (일관성 우선)** — 파티션이 나면 **응답을 막아서라도** 데이터 일관성을 지킨다. 잘못된 값을 주느니 에러를 낸다. 결제·계좌·재고처럼 틀리면 안 되는 쪽
+- **AP (가용성 우선)** — 파티션이 나도 **일단 응답한다.** 대신 노드마다 값이 잠깐 다를 수 있고(최종 일관성), 나중에 화해한다. 피드·장바구니·조회수처럼 잠깐 어긋나도 되는 쪽
 
-#### 2. 🔄 트레이드오프 종류
+같은 제품도 설정에 따라 갈린다. DynamoDB나 Cassandra는 정족수(R/W) 설정으로 AP↔CP 사이를 조절할 수 있다.
 
-CAP 이론에 따르면 분산 환경에서 네트워크 문제가 발생하면, 세 특성 중 두 가지만 유지할 수 있습니다:
+## CA는 사실상 함정
 
-- **CP (Consistency + Partition Tolerance)**
-  - → **가용성 희생**
-  - 파티션 발생 시 시스템은 으로 응답을 차단하여 일관성을 지킵니다.
-  - 은행, 예약 시스템 등에 적합 
-- **AP (Availability + Partition Tolerance)**
-  - → **일관성 희생**
-  - 파티션 시 응답 유지하지만 일시적으로 데이터 불일치 발생.
-  - SNS, CDN, 실시간 분석 등에 적합 
-- **CA (Consistency + Availability)**
-  - → **Partition Tolerance 불가능**
-  - 이론상 가능하지만, 분산 시스템에서는 네트워크 장애를 고려해야 하기 때문에 현실적으로 거의 존재하지 않습니다.
-  - 단일 노드 RDBMS 수준에 가깝습니다 
+"CA = 일관성 + 가용성, P만 포기"라고 하는데, **P를 포기한다는 건 분산을 포기한다는 말**이다. 즉 CA는 노드 하나짜리(단일 RDBMS) 얘기지 분산 시스템의 선택지가 아니다. 분산으로 넘어온 순간 CA는 목록에서 빠진다고 보면 된다.
 
----
+## 대략적인 진영
 
-#### 3. 🔍 왜 "2개만" 선택해야 하나?
+교과서 분류라 제품/설정마다 다르지만 감을 잡는 용도로:
 
-네트워크 분할이 발생하면:
+- **CP 쪽** — HBase, Zookeeper, MongoDB(기본 구성)
+- **AP 쪽** — Cassandra, DynamoDB, Riak, CouchDB
 
-- **일관성 유지 → 일부 노드 응답 거부 (가용성 포기)**
-- **가용성 유지 → 최신 데이터 보장 어려움 (일관성 포기)** 
-즉, 분산 시스템은 파티션 상황에서 C와 A 중 무엇을 우선할지 결정해야 합니다.
+## PACELC — 평상시도 생각해야 한다
 
----
+CAP은 "파티션 났을 때"만 다룬다. 그런데 시스템은 파티션 안 난 평상시가 훨씬 길다. PACELC가 그 빈칸을 채운다.
 
-#### 4. ⚙️ 실세계 적용 예
+- **파티션(P) 나면** → A냐 C냐
+- **평상시(Else)면** → **지연(L)이냐 일관성(C)이냐**
 
-- **CP 시스템**: HBase, MongoDB(primary), Zookeeper 등
-- **AP 시스템**: Cassandra, CouchDB, DynamoDB 등
-- **CA 시스템**: 단일 인스턴스 RDBMS (MySQL, PostgreSQL 등) – **현실의 분산 시스템에는 거의 해당 안됨** 
+DynamoDB가 왜 빠른가? 평상시에도 일관성보다 낮은 지연을 택하기 때문이다(PA/EL). 반대로 동기 복제로 강한 일관성을 잡는 구성은 평상시 지연을 감수한다(EC). 결국 실무 튜닝은 이 "평상시 L vs C"에서 벌어지는 경우가 많다.
 
----
+## 정리하며
 
-#### 5. 🧠 확장: PACELC 이론
-
-CAP의 한계를 보완한 확장 이론입니다.
-
-- **P (Partition)** 발생 시 → A vs C 선택
-- **Else (E, 평시)** → Latency (L) vs Consistency (C) 선택 
-즉,
-
-```mathematica
-If P:
-  choose A or C
-Else:
-  choose L or C
-```
-
----
-
-#### 6. 🎯 정리
-
-1. 분산 시스템은 **네트워크 분할(P)**을 항상 고려해야 함
-1. 이론상 CAP 중 두 가지만 충족 가능
-1. **실용적 설계는 PACELC와 같은 정량적 접근이 필요**
-1. 시스템 요구사항(응답성, 최신성, 내결함성 등)에 따라 최적 조합 선택
-
----
-
-#### 참고 문헌
-
-- IBM “What is the CAP theorem?” 
-- OneNY 블로그 “CAP 이론으로 보는 RDBMS vs NoSQL”
+- 외울 건 "셋 중 둘"이 아니라 **"파티션 나면 C냐 A냐"**
+- **CA는 분산에선 없는 선택지** (단일 노드 얘기)
+- 실무에선 CAP보다 **PACELC의 '평상시 지연 vs 일관성'** 이 더 자주 걸린다
+- 결국 정답은 없고 **서비스 요구사항(틀리면 안 되나 / 느리면 안 되나)** 이 결정한다
