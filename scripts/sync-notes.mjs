@@ -65,8 +65,10 @@ async function main() {
 			...(fm.updatedDate || fm.modDatetime
 				? { modDatetime: toDate(fm.updatedDate || fm.modDatetime) }
 				: {}),
+			...(fm.featured ? { featured: true } : {}),
 		};
-		const dest = path.join(OUT, `${titleToSlug(fm.title, file)}.md`);
+		// slug frontmatter가 있으면 그대로(블로그 파일명 1:1 매핑), 없으면 제목에서 생성
+		const dest = path.join(OUT, `${fm.slug || titleToSlug(fm.title, file)}.md`);
 		await fs.writeFile(dest, matter.stringify(stripWiki(parsed.content), out));
 		stats.published++;
 	}
