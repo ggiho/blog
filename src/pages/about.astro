@@ -11,46 +11,76 @@ import Footer from "@/components/Footer.astro";
       <p class="text-muted-foreground">giho@blog ~ % whoami</p>
       <h1 class="mt-1 text-2xl font-bold">giho.seong</h1>
       <p class="text-muted-foreground mt-1 mb-6">
-        Database Reliability Engineer · Data Engineer
+        Sr. Database Administrator · Data Engineer
       </p>
 
       <div class="space-y-4">
         <p>
-          MySQL·Aurora·Redshift를 운영하는 데이터베이스/데이터 엔지니어입니다. 대규모
-          트래픽 환경의 DB 운영과 무중단 마이그레이션, 성능 최적화, 클라우드 비용
-          최적화(FinOps)를 주로 다룹니다. 필요하면 MySQL 소스코드까지 파고듭니다.
+          Amazon Aurora MySQL·DynamoDB·MariaDB를 운영하는 DBA입니다. 고가용성 아키텍처,
+          클라우드 마이그레이션, 성능 튜닝, 그리고 운영 자동화를 주로 다룹니다. 필요하면
+          MySQL 소스코드까지 파고듭니다.
         </p>
         <p>글은 Neovim과 터미널에서 쓰고, 여기서 발행합니다.</p>
       </div>
 
-      <h2 class="text-prompt mt-8 mb-3 font-semibold">## 하는 일</h2>
-      <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
-        <li>대규모 MySQL/Aurora 운영 — 수만 QPS, 파티셔닝·다이나믹 샤딩</li>
-        <li>무중단 마이그레이션 — IDC→클라우드, DMS CDC로 초단위 다운타임</li>
-        <li>성능 최적화 & 장애 대응 — 쿼리 튜닝, 인덱스 재설계, 소스 분석</li>
-        <li>데이터 파이프라인 — DW(Redshift)→데이터마트, 수십억건 집계</li>
-        <li>모니터링 — Grafana·Zabbix·Lambda/SNS·Slack 알림 구성</li>
-      </ul>
+      <h2 class="text-prompt mt-8 mb-4 font-semibold">## Experience</h2>
 
-      <h2 class="text-prompt mt-8 mb-3 font-semibold">## 대표 성과</h2>
-      <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
-        <li>
-          <span class="text-accent">억 단위 인프라 비용 절감</span> — RDS 34%(77대) 축소,
-          엔진 업그레이드·인스턴스 계열 전환·튜닝으로 CPU 8%까지 최적화 후 Scale Down
-        </li>
-        <li>
-          <span class="text-accent">알림톡 발송 성능 550%↑</span> — buffer pool·optimizer
-          파라미터 튜닝 + Aurora 엔진 업그레이드 (30만건/30분 → 55만건/10분)
-        </li>
-        <li>
-          <span class="text-accent">90만 테이블 Table Cache 최적화</span> — MySQL 5.7
-          소스 분석으로 opened_tables 부하 원인 규명 및 파라미터 튜닝
-        </li>
-        <li>
-          <span class="text-accent">1.5억건 무중단 클라우드 이관</span> — IDC MySQL→Aurora,
-          Binlog + DMS CDC 스트리밍으로 초단위 다운타임 (24시간 상담 서비스)
-        </li>
-      </ul>
+      <div class="mb-6">
+        <p class="font-semibold">
+          Sr. Database Administrator ·
+          <span class="text-accent">Asurion</span>
+        </p>
+        <p class="text-muted-foreground mb-2 font-mono text-xs">
+          2023.07 – 현재
+        </p>
+        <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
+          <li>
+            Amazon Aurora MySQL·DynamoDB 운영 — 고가용성, 성능 튜닝, 프로덕션 비용 효율화
+          </li>
+          <li>
+            레거시 ETL 파이프라인을 AWS DMS로 전환 — 마이그레이션 시간 단축, 데이터
+            정합성 향상
+          </li>
+          <li>
+            EC2 기반 MySQL → Amazon RDS 이관 — 시스템 안정성·유지보수 자동화·확장성 개선
+          </li>
+          <li>
+            Python으로 DBA 반복 작업 자동화 — 모니터링 알림, 계정 프로비저닝, 로그 분석
+          </li>
+          <li>
+            ISMS 인증 심사 대응 — DB 컴플라이언스, 접근 제어, 암호화 정책 지원
+          </li>
+          <li>백업/복구·모니터링·튜닝·쿼리 최적화 (RDB + NoSQL)</li>
+        </ul>
+      </div>
+
+      <div class="mb-2">
+        <p class="font-semibold">
+          Database Administrator ·
+          <span class="text-accent">Little Fox</span>
+        </p>
+        <p class="text-muted-foreground mb-2 font-mono text-xs">
+          2021.11 – 2023.05
+        </p>
+        <ul class="marker:text-accent list-disc space-y-1.5 ps-5">
+          <li>
+            Oracle 11g → MariaDB 10.5 전면 마이그레이션 — Python 이관 스크립트로 100+
+            스키마 무손실 이전(수 TB), 스키마·프로시저·트리거·파티션 변환 후 쿼리 튜닝
+          </li>
+          <li>
+            모니터링 플랫폼 구축 — Prometheus + Grafana로 30+ 대시보드, Slack 웹훅 알림으로
+            MTTR 40%↓
+          </li>
+          <li>
+            HA 아키텍처 — 베어메탈 MariaDB 튜닝, M‑S‑S 복제 + 3노드 MaxScale(읽기/쓰기
+            분리·자동 failover), failover 테스트로 검증
+          </li>
+          <li>
+            운영 자동화 — Python/Bash 배치로 데이터 추출·일/주간 리포트 자동화 (월 ~20시간
+            절감)
+          </li>
+        </ul>
+      </div>
 
       <h2 class="text-prompt mt-8 mb-3 font-semibold">## 이 블로그는</h2>
       <p class="text-muted-foreground">
