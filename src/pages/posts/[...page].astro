@@ -29,16 +29,25 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10);
             <li class="border-border/60 hover:bg-muted/40 -mx-2 border-b px-2 transition-colors">
               <a
                 href={getPostUrl(p.id, p.filePath, locale)}
-                class="flex flex-col py-2.5 sm:flex-row sm:items-baseline sm:gap-4"
+                class="group block py-3"
               >
-                <time class="text-muted-foreground shrink-0 text-xs sm:w-28">
-                  {fmt(p.data.pubDatetime)}
-                </time>
-                <span class="text-accent hover:underline">{p.data.title}</span>
-                {p.data.tags?.length ? (
-                  <span class="text-muted-foreground text-xs sm:ms-auto">
-                    {p.data.tags.join(", ")}
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+                  <time class="text-muted-foreground shrink-0 text-xs sm:w-28">
+                    {fmt(p.data.pubDatetime)}
+                  </time>
+                  <span class="text-accent group-hover:underline">
+                    {p.data.title}
                   </span>
+                  {p.data.tags?.length ? (
+                    <span class="text-muted-foreground shrink-0 text-xs sm:ms-auto">
+                      {p.data.tags.slice(0, 3).join(", ")}
+                    </span>
+                  ) : null}
+                </div>
+                {p.data.description ? (
+                  <p class="text-muted-foreground mt-1 line-clamp-1 text-sm sm:ps-32">
+                    {p.data.description}
+                  </p>
                 ) : null}
               </a>
             </li>
