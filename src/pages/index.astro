@@ -19,9 +19,12 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10);
       <p class="text-muted-foreground">giho@blog ~ % whoami</p>
       <p class="mb-6">데이터·DB 엔지니어. nvim에서 쓰고, 여기서 발행합니다.</p>
       <p>
-        <span class="text-prompt">giho=#</span> select title, tags, published from posts
-        order by published desc;<span class="cursor-blink"
-        >&nbsp;▊</span>
+        <span class="text-prompt">giho=#</span>{" "}
+        <span
+          id="typed-query"
+          data-text="select title, tags, published from posts order by published desc;"
+          >select title, tags, published from posts order by published desc;</span
+        ><span class="cursor-blink">&nbsp;▊</span>
       </p>
     </section>
 
@@ -64,3 +67,28 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10);
   </main>
   <Footer />
 </Layout>
+
+<script>
+  // 홈 프롬프트 쿼리 타이핑 — reduced-motion이면 전체 즉시 표시
+  function typeQuery() {
+    const el = document.getElementById("typed-query");
+    if (!el) return;
+    const full = el.dataset.text || el.textContent || "";
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      el.textContent = full;
+      return;
+    }
+    el.textContent = "";
+    let i = 0;
+    const tick = () => {
+      if (!el.isConnected) return;
+      el.textContent = full.slice(0, i);
+      if (i++ < full.length) setTimeout(tick, 16);
+    };
+    tick();
+  }
+
+  typeQuery();
+  document.addEventListener("astro:after-swap", typeQuery);
+</script>
