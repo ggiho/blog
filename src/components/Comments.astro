@@ -1,0 +1,62 @@
+---
+// giscus 댓글 (GitHub Discussions 기반). 사이트 다크/라이트 테마와 동기화.
+// ※ 동작하려면 giscus 앱이 ggiho/blog 레포에 설치돼 있어야 함: https://github.com/apps/giscus
+---
+
+<section class="mt-12">
+  <div class="giscus"></div>
+</section>
+
+<script>
+  const GISCUS: Record<string, string> = {
+    "data-repo": "ggiho/blog",
+    "data-repo-id": "R_kgDOT5UuDA",
+    "data-category": "Announcements",
+    "data-category-id": "DIC_kwDOT5UuDM4DDeXB",
+    "data-mapping": "pathname",
+    "data-strict": "1",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-input-position": "top",
+    "data-lang": "ko",
+    "data-loading": "lazy",
+  };
+
+  const themeNow = () =>
+    document.documentElement.getAttribute("data-theme") === "dark"
+      ? "dark_dimmed"
+      : "light";
+
+  function loadGiscus() {
+    const el = document.querySelector<HTMLElement>(".giscus");
+    if (!el) return;
+    el.innerHTML = "";
+    const s = document.createElement("script");
+    s.src = "https://giscus.app/client.js";
+    s.async = true;
+    s.crossOrigin = "anonymous";
+    Object.entries(GISCUS).forEach(([k, v]) => s.setAttribute(k, v));
+    s.setAttribute("data-theme", themeNow());
+    el.appendChild(s);
+  }
+
+  function syncTheme() {
+    const iframe =
+      document.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
+    iframe?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: themeNow() } } },
+      "https://giscus.app"
+    );
+  }
+
+  loadGiscus();
+
+  if (!(window as any).__giscusBound) {
+    (window as any).__giscusBound = true;
+    new MutationObserver(syncTheme).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    document.addEventListener("astro:after-swap", loadGiscus);
+  }
+</script>
