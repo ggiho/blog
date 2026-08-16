@@ -90,3 +90,49 @@ html[data-theme="dark"] .astro-code {
 .app-prose :is(p, li) {
   line-height: 1.8;
 }
+
+/* 콜아웃 톤다운 — 컬러 박스 채움 제거, 얇은 좌측 바만 (터미널 팔레트) */
+.app-prose .callout {
+  background: transparent !important;
+  border: 0 !important;
+  border-inline-start: 3px solid var(--accent) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.1rem 0 0.1rem 1rem !important;
+  margin: 1.2rem 0 !important;
+}
+.app-prose .callout-title {
+  margin: 0 0 0.25rem 0 !important;
+  padding: 0 !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+}
+.app-prose .callout-content {
+  padding: 0 !important;
+}
+.app-prose .callout-content > :first-child {
+  margin-top: 0;
+}
+.app-prose .callout-content > :last-child {
+  margin-bottom: 0;
+}
+.app-prose .callout[data-callout="warning"],
+.app-prose .callout[data-callout="caution"],
+.app-prose .callout[data-callout="attention"] {
+  border-inline-start-color: var(--prompt) !important;
+}
+.app-prose .callout[data-callout="tip"],
+.app-prose .callout[data-callout="success"],
+.app-prose .callout[data-callout="check"],
+.app-prose .callout[data-callout="done"],
+.app-prose .callout[data-callout="hint"] {
+  border-inline-start-color: #6bbf73 !important;
+}
+.app-prose .callout[data-callout="danger"],
+.app-prose .callout[data-callout="error"],
+.app-prose .callout[data-callout="bug"],
+.app-prose .callout[data-callout="failure"],
+.app-prose .callout[data-callout="important"],
+.app-prose .callout[data-callout="missing"] {
+  border-inline-start-color: #d9707a !important;
+}
