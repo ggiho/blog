@@ -119,17 +119,36 @@
     @apply bg-(--shiki-dark-bg) text-(--shiki-dark) [&_span]:text-(--shiki-dark);
   }
 
-  /* Styles for Shiki transformers */
+  /* 라인번호 — .line 마다 카운터 거터 (복사 텍스트엔 미포함) */
+  .astro-code code {
+    counter-reset: step;
+  }
+  .astro-code .line {
+    @apply inline-block w-full;
+    counter-increment: step;
+  }
+  .astro-code .line::before {
+    content: counter(step);
+    display: inline-block;
+    width: 1rem;
+    margin-right: 1.25rem;
+    text-align: right;
+    color: var(--muted-foreground);
+    opacity: 0.45;
+    user-select: none;
+  }
+
+  /* Styles for Shiki transformers (diff 마커는 색상으로 — 라인번호 ::before와 충돌 방지) */
   /* https://shiki.style/packages/transformers */
   .astro-code {
     .line.diff.add {
-      @apply relative inline-block w-full bg-green-400/20 before:absolute before:-left-3 before:text-green-500 before:content-['+'];
+      @apply bg-green-400/15;
     }
     .line.diff.remove {
-      @apply relative inline-block w-full bg-red-500/20 before:absolute before:-left-3 before:text-red-500 before:content-['-'];
+      @apply bg-red-500/15;
     }
     .line.highlighted {
-      @apply inline-block w-full bg-slate-400/20;
+      @apply bg-slate-400/20;
     }
     .highlighted-word {
       @apply border-border rounded-sm border px-0.5 py-px;

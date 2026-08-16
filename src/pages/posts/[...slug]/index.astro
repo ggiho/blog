@@ -214,25 +214,27 @@ const ogImage = ogImageUrl
       wrapper.className = "copy-wrap";
       wrapper.style.position = "relative";
 
-      const computedStyle = getComputedStyle(codeBlock);
-      const hasFileNameOffset =
-        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
-
-      const topClass = hasFileNameOffset
-        ? "top-(--file-name-offset)"
-        : "top-2.5";
-
       const copyButton = document.createElement("button");
       copyButton.type = "button";
       copyButton.setAttribute("aria-label", "Copy code");
       copyButton.title = "Copy";
-      copyButton.className = `copy-code text-muted-foreground hover:text-accent border-border bg-background/70 absolute end-2.5 ${topClass} z-10 rounded-md border p-1.5 opacity-0 backdrop-blur transition-opacity`;
+      copyButton.className = `copy-code text-muted-foreground hover:text-accent border-border bg-background/70 absolute end-2.5 top-2.5 z-10 rounded-md border p-1.5 opacity-0 backdrop-blur transition-opacity`;
       copyButton.innerHTML = iconCopy;
       codeBlock.setAttribute("tabindex", "0");
 
       codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
       wrapper.appendChild(copyButton);
+
+      // 언어 배지 (hover 시 copy 아이콘으로 교체됨)
+      const lang = codeBlock.getAttribute("data-language");
+      if (lang && lang !== "plaintext" && lang !== "text") {
+        const badge = document.createElement("span");
+        badge.className =
+          "lang-badge text-muted-foreground pointer-events-none absolute end-3 top-3 z-0 text-[0.7rem] tracking-wider uppercase transition-opacity";
+        badge.textContent = lang;
+        wrapper.appendChild(badge);
+      }
 
       copyButton.addEventListener("click", async () => {
         await copyCode(codeBlock, copyButton);

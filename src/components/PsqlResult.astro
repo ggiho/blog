@@ -1,0 +1,55 @@
+---
+// psql 쿼리 결과를 실제 콘솔 출력처럼 렌더 (본문에서 사용).
+// 리스트 페이지의 gimmick과 달리, 글 안에서 쓰면 DB 블로그의 자산이 됨.
+type Props = {
+  db?: string;
+  query?: string;
+  columns: string[];
+  rows: (string | number)[][];
+  align?: ("left" | "right")[];
+};
+
+const { db = "analytics", query, columns, rows, align = [] } = Astro.props;
+const alignOf = (i: number) => (align[i] === "right" ? "text-right" : "text-left");
+---
+
+<div class="psql-result my-6 text-sm">
+  {
+    query && (
+      <p class="text-muted-foreground mb-2 overflow-x-auto whitespace-pre">
+        <span class="text-prompt">{db}=#</span> {query}
+      </p>
+    )
+  }
+  <div class="border-border overflow-x-auto border">
+    <table class="w-full border-collapse text-left">
+      <thead>
+        <tr class="border-border text-muted-foreground border-b">
+          {
+            columns.map((c, i) => (
+              <th class={`px-3 py-1.5 font-medium whitespace-nowrap ${alignOf(i)}`}>
+                {c}
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
+        {
+          rows.map(r => (
+            <tr class="border-border/50 hover:bg-muted/40 border-b transition-colors last:border-b-0">
+              {r.map((cell, i) => (
+                <td class={`px-3 py-1.5 align-top whitespace-nowrap ${alignOf(i)}`}>
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="text-muted-foreground mt-2">
+    ({rows.length} row{rows.length === 1 ? "" : "s"})
+  </p>
+</div>

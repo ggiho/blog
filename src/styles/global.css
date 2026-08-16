@@ -74,3 +74,13 @@ html[data-theme="dark"] .astro-code {
 .copy-code:focus-visible {
   opacity: 1;
 }
+
+/* 언어 배지: 평소 노출, hover 시 copy 아이콘으로 자연스럽게 교체 */
+.copy-wrap:hover .lang-badge {
+  opacity: 0;
+}
+
+/* 롱폼 가독성 — 모노 본문 줄간격 여유 */
+.app-prose :is(p, li) {
+  line-height: 1.8;
+}
