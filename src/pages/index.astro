@@ -9,56 +9,87 @@ import config from "@/config";
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const posts = getSortedPosts(await getCollection("posts"));
+const [lead, ...rest] = posts;
 const fmt = (d: Date) => d.toISOString().slice(0, 10);
+const topTag = (p: (typeof posts)[number]) => p.data.tags?.[0] ?? "";
 ---
 
 <Layout>
   <Header />
-  <main id="main-content" class="app-layout my-1">
-    <section class="border-border border-b pt-8 pb-6 text-sm sm:text-base">
-      <p class="text-muted-foreground">giho@blog ~ % whoami</p>
-      <p class="mb-6">데이터·DB 엔지니어. nvim에서 쓰고, 여기서 발행합니다.</p>
-      <p>
-        <span class="text-prompt">giho=#</span> select title, tags, published from posts
-        order by published desc;
+  <main id="main-content" class="app-layout">
+    <!-- Masthead -->
+    <section class="border-border border-b pt-10 pb-8">
+      <h1
+        class="font-display text-5xl font-semibold tracking-tight sm:text-6xl"
+      >
+        giho
+      </h1>
+      <p
+        class="text-muted-foreground mt-3 font-mono text-xs tracking-[0.25em] uppercase"
+      >
+        data · databases · tools
       </p>
     </section>
 
-    <section class="pt-6 pb-6 text-sm">
-      <div class="overflow-x-auto">
-        <table class="w-full border-collapse text-left">
-          <thead>
-            <tr class="border-border text-muted-foreground border-b">
-              <th class="py-1 pr-4 font-medium">title</th>
-              <th class="py-1 pr-4 font-medium">tags</th>
-              <th class="py-1 font-medium">published</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              posts.map(p => (
-                <tr class="border-border/60 hover:bg-muted/40 border-b transition-colors">
-                  <td class="py-1.5 pr-4 align-top">
-                    <a
-                      class="text-accent hover:underline"
-                      href={getPostUrl(p.id, p.filePath, locale)}
-                    >
-                      {p.data.title}
-                    </a>
-                  </td>
-                  <td class="text-muted-foreground py-1.5 pr-4 align-top">
-                    {p.data.tags?.length ? p.data.tags.join(", ") : "-"}
-                  </td>
-                  <td class="text-muted-foreground py-1.5 align-top whitespace-nowrap">
-                    {fmt(p.data.pubDatetime)}
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-      <p class="text-muted-foreground mt-3">({posts.length} rows)</p>
+    <!-- Lead essay -->
+    {
+      lead && (
+        <section class="border-border border-b py-8">
+          <p class="text-accent mb-3 font-mono text-xs tracking-widest uppercase">
+            Latest
+          </p>
+          <a
+            href={getPostUrl(lead.id, lead.filePath, locale)}
+            class="group block"
+          >
+            <h2 class="font-display group-hover:text-accent text-3xl leading-tight font-semibold tracking-tight transition-colors sm:text-4xl">
+              {lead.data.title}
+            </h2>
+          </a>
+          <p class="text-muted-foreground mt-3 font-mono text-xs">
+            {fmt(lead.data.pubDatetime)}
+            {topTag(lead) && <span> · {topTag(lead)}</span>}
+          </p>
+          {lead.data.description && (
+            <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+              {lead.data.description}
+            </p>
+          )}
+        </section>
+      )
+    }
+
+    <!-- Index -->
+    <section class="py-8">
+      <p
+        class="text-muted-foreground mb-2 font-mono text-xs tracking-widest uppercase"
+      >
+        Writing
+      </p>
+      <ul>
+        {
+          rest.map(p => (
+            <li class="group border-border/60 border-b">
+              <a
+                href={getPostUrl(p.id, p.filePath, locale)}
+                class="flex flex-col py-4 sm:flex-row sm:items-baseline sm:gap-5"
+              >
+                <time class="text-muted-foreground shrink-0 font-mono text-xs sm:w-24">
+                  {fmt(p.data.pubDatetime)}
+                </time>
+                <span class="font-display group-hover:text-accent text-lg font-medium transition-colors">
+                  {p.data.title}
+                </span>
+                {topTag(p) && (
+                  <span class="text-muted-foreground mt-1 font-mono text-[0.7rem] tracking-wider uppercase sm:mt-0 sm:ms-auto">
+                    {topTag(p)}
+                  </span>
+                )}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </section>
   </main>
   <Footer />

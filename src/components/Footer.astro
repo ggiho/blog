@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear();
   {...attrs}
 >
   <div
-    class="border-border text-muted-foreground flex flex-col items-center justify-between border-t py-6 text-xs sm:flex-row-reverse sm:py-4"
+    class="border-border text-muted-foreground flex flex-col items-center justify-between border-t py-6 font-mono text-xs sm:flex-row-reverse sm:py-4"
   >
     <a
       class="hover:text-accent"
@@ -24,8 +24,6 @@ const currentYear = new Date().getFullYear();
     >
       github
     </a>
-    <div class="my-2">
-      -- &copy; {currentYear} giho.seong &middot; built from markdown
-    </div>
+    <div class="my-2">&copy; {currentYear} giho.seong</div>
   </div>
 </footer>

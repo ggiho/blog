@@ -17,39 +17,34 @@ for (const p of posts)
 
 <Layout title={`Tags | ${config.site.title}`}>
   <Header />
-  <main id="main-content" class="app-layout my-1">
-    <section class="pt-6 pb-6 text-sm">
-      <p class="mb-6">
-        <span class="text-prompt">giho=#</span> select tag, count(*) from posts group by
-        tag order by count desc;
+  <main id="main-content" class="app-layout">
+    <section class="border-border border-b pt-10 pb-6">
+      <h1 class="font-display text-4xl font-semibold tracking-tight">Tags</h1>
+      <p class="text-muted-foreground mt-2 font-mono text-xs tracking-wider">
+        {tags.length} topics
       </p>
-      <div class="overflow-x-auto">
-        <table class="w-full border-collapse text-left">
-          <thead>
-            <tr class="border-border text-muted-foreground border-b">
-              <th class="py-1 pr-4 font-medium">tag</th>
-              <th class="py-1 font-medium">count</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              tags.map(({ tag, tagName }) => (
-                <tr class="border-border/60 hover:bg-muted/40 border-b transition-colors">
-                  <td class="py-1.5 pr-4 align-top">
-                    <a class="text-accent hover:underline" href={`/tags/${tag}/`}>
-                      #{tagName}
-                    </a>
-                  </td>
-                  <td class="text-muted-foreground py-1.5 align-top">
-                    {counts.get(tag.toLowerCase()) ?? "-"}
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-      <p class="text-muted-foreground mt-3">({tags.length} rows)</p>
+    </section>
+
+    <section class="py-6">
+      <ul class="flex flex-col">
+        {
+          tags.map(({ tag, tagName }) => (
+            <li class="group border-border/60 border-b">
+              <a
+                href={`/tags/${tag}/`}
+                class="flex items-baseline justify-between py-3"
+              >
+                <span class="font-display group-hover:text-accent text-lg transition-colors">
+                  #{tagName}
+                </span>
+                <span class="text-muted-foreground font-mono text-xs">
+                  {counts.get(tag.toLowerCase()) ?? 0}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </section>
   </main>
   <Footer />

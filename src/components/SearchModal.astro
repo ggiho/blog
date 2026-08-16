@@ -7,8 +7,7 @@ const bundlePath = getAssetPath("pagefind/");
 
 <dialog id="search-dialog" data-bundle-path={bundlePath} aria-label="Search">
   <div class="sd-head">
-    <span class="text-prompt">giho=#</span>
-    <span class="text-muted-foreground">search</span>
+    <span class="sd-label">Search</span>
     <kbd class="sd-kbd">esc</kbd>
   </div>
   <div id="pagefind-search-modal"></div>
@@ -101,8 +100,14 @@ const bundlePath = getAssetPath("pagefind/");
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-bottom: 0.75rem;
+  }
+  #search-dialog .sd-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
   }
   #search-dialog .sd-kbd {
     margin-left: auto;
@@ -125,12 +130,12 @@ const bundlePath = getAssetPath("pagefind/");
   #pagefind-search-modal .pagefind-ui__result-title a {
     color: var(--accent);
   }
-  /* 검색 하이라이트: 형광노랑 → 테마 앰버 (Pagefind CSS보다 우선) */
+  /* 검색 하이라이트: 형광노랑 → 테마 액센트 (Pagefind CSS보다 우선) */
   mark,
   .pagefind-ui__result-excerpt mark,
   .pagefind-ui mark {
-    background-color: var(--prompt) !important;
-    color: var(--background) !important;
+    background-color: var(--accent) !important;
+    color: var(--accent-foreground) !important;
     border-radius: 2px;
     padding: 0 2px;
   }

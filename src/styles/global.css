@@ -38,12 +38,32 @@
   scroll-margin-block: 1rem;
 }
 
-/* 본문 섹션 제목에 앰버 강조 (본문 텍스트와 색 구분) */
-.app-prose :is(h2, h3, h4) {
-  color: var(--prompt);
+@layer base {
+  /* 코드·데이터는 mono, 본문·제목은 세리프 */
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* 본문 소제목: 디스플레이 세리프(Fraunces), h2는 옥스블러드 섹션 마커 */
+.app-prose :is(h1, h2, h3, h4) {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+.app-prose h2 {
+  color: var(--accent);
 }
 
 /* 코드블록: night-owl 글씨색 유지, 배경만 검은회색으로 (네이비 제거) */
 html[data-theme="dark"] .astro-code {
   background-color: #1c1c1e !important;
+}
+
+/* 코드블록 복사 버튼: 평소 숨김, hover 시에만 아이콘 노출 */
+.copy-wrap:hover .copy-code,
+.copy-code:focus-visible {
+  opacity: 1;
 }

@@ -111,12 +111,9 @@ const ogImage = ogImageUrl
     class:list={["app-layout", { "mt-8": !config.features.showBackButton }]}
     data-pagefind-body
   >
-    <p class="text-muted-foreground mb-2 text-xs">
-      ~/posts/{getPostSlug(post.id, post.filePath).replace(/^\/+/, "")}
-    </p>
     <h1
       style={{ viewTransitionName: toTransitionName(post.id) }}
-      class="text-foreground inline-block text-2xl font-bold sm:text-3xl"
+      class="font-display text-foreground text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
     >
       {title}
     </h1>
@@ -205,11 +202,13 @@ const ogImage = ogImageUrl
   addHeadingLinks();
 
   function attachCopyButtons() {
-    const copyButtonLabel = "Copy";
+    const iconCopy = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+    const iconDone = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`;
     const codeBlocks = Array.from(document.querySelectorAll("pre"));
 
     for (const codeBlock of codeBlocks) {
       const wrapper = document.createElement("div");
+      wrapper.className = "copy-wrap";
       wrapper.style.position = "relative";
 
       const computedStyle = getComputedStyle(codeBlock);
@@ -218,16 +217,19 @@ const ogImage = ogImageUrl
 
       const topClass = hasFileNameOffset
         ? "top-(--file-name-offset)"
-        : "-top-3";
+        : "top-2.5";
 
       const copyButton = document.createElement("button");
-      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
-      copyButton.innerHTML = copyButtonLabel;
+      copyButton.type = "button";
+      copyButton.setAttribute("aria-label", "Copy code");
+      copyButton.title = "Copy";
+      copyButton.className = `copy-code text-muted-foreground hover:text-accent border-border bg-background/70 absolute end-2.5 ${topClass} z-10 rounded-md border p-1.5 opacity-0 backdrop-blur transition-opacity`;
+      copyButton.innerHTML = iconCopy;
       codeBlock.setAttribute("tabindex", "0");
-      codeBlock.appendChild(copyButton);
 
       codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
+      wrapper.appendChild(copyButton);
 
       copyButton.addEventListener("click", async () => {
         await copyCode(codeBlock, copyButton);
@@ -240,11 +242,13 @@ const ogImage = ogImageUrl
 
       await navigator.clipboard.writeText(text ?? "");
 
-      button.innerText = "Copied";
+      button.innerHTML = iconDone;
+      button.classList.add("text-accent", "opacity-100");
 
       setTimeout(() => {
-        button.innerText = copyButtonLabel;
-      }, 700);
+        button.innerHTML = iconCopy;
+        button.classList.remove("text-accent", "opacity-100");
+      }, 1200);
     }
   }
   attachCopyButtons();

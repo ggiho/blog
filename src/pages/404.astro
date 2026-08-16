@@ -6,16 +6,19 @@ import Footer from "@/components/Footer.astro";
 
 <Layout title="404 · not found">
   <Header />
-  <main id="main-content" class="app-layout my-1">
-    <section class="pt-8 pb-6 text-sm sm:text-base">
-      <p>
-        <span class="text-prompt">giho=#</span> select * from pages where path = current_path;
+  <main id="main-content" class="app-layout">
+    <section class="py-16">
+      <p class="text-accent mb-3 font-mono text-xs tracking-widest uppercase">
+        Error 404
       </p>
-      <p class="text-muted-foreground mt-4">ERROR: relation for this path does not exist</p>
-      <p class="text-muted-foreground">DETAIL: 404 — page not found</p>
-      <p class="mt-6">
-        <a class="text-accent hover:underline" href="/">\c home</a>
-        <span class="text-muted-foreground">-- 홈으로 돌아가기</span>
+      <h1 class="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+        여긴 아무것도 없어요
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg">
+        주소가 바뀌었거나 사라진 페이지입니다.
+      </p>
+      <p class="mt-8 font-mono text-sm">
+        <a class="text-accent hover:underline" href="/">← 홈으로 돌아가기</a>
       </p>
     </section>
   </main>
