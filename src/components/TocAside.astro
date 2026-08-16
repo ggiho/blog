@@ -18,7 +18,6 @@ const show = items.length >= minHeadings;
       style="inset-inline-start: calc(50% + 25.5rem);"
       aria-label="목차"
     >
-      <p class="text-prompt mb-3 text-xs tracking-wider">-- contents</p>
       <ul>
         {items.map(h => (
           <li class={h.depth === 3 ? "ms-3" : ""}>
