@@ -16,26 +16,26 @@ const NOTION = "https://giho.notion.site";
 const SENSITIVE = /asurion|어슈리온|\bskt\b|쿼리파이|queryfi|dbfence|주민등록|계좌번호|리니지|AKIA[0-9A-Z]{12,}|-----BEGIN|xoxb-|ghp_[A-Za-z0-9]{20,}/i;
 
 const TARGETS = [
-  { id: "2503d039-df65-8018-bdbc-d211eb74d059", slug: "mysql-adaptive-hash-index", tags: ["mysql", "database", "internals"] },
-  { id: "35d3d039-df65-8147-b627-cbd48a21c1a1", slug: "mysql-online-ddl", tags: ["mysql", "database", "ddl"] },
-  { id: "35d3d039-df65-8154-bcd4-d5458279fc69", slug: "mysql-collation", tags: ["mysql", "database"] },
-  { id: "6e236561-78bf-4897-a940-46d8e458acdd", slug: "mysql-replication", tags: ["mysql", "replication", "database"] },
-  { id: "e066cf30-ab60-49e1-8f15-563048a540d1", slug: "mysql-backup-recovery", tags: ["mysql", "backup", "database"] },
-  { id: "892feacc-10b9-4ec7-bb44-ba1716753b12", slug: "index-scan-process", tags: ["mysql", "index", "database"] },
-  { id: "43a4d2f5-df3f-4fea-bd1e-da8e4d7e3f4b", slug: "rowid-filter", tags: ["mysql", "index", "optimizer"] },
-  { id: "35d3d039-df65-819e-841b-c29ea15064e4", slug: "aurora-mysql-architecture", tags: ["aurora", "mysql", "aws"] },
-  { id: "24e3d039-df65-8021-9a92-c714e9cc50ca", slug: "aurora-3-10-jemalloc", tags: ["aurora", "mysql", "aws"] },
-  { id: "25e3d039-df65-8074-8ec5-d60e6b3823fb", slug: "aurora-dsql", tags: ["aurora", "aws", "distributed"] },
-  { id: "2303d039-df65-809a-b43a-f6126f4c4264", slug: "cap-theorem", tags: ["distributed", "theory"] },
-  { id: "25e3d039-df65-8069-9786-fb284390aed3", slug: "pcc-vs-occ", tags: ["database", "concurrency", "theory"] },
-  { id: "35d3d039-df65-8122-9038-f467ad7a3c7a", slug: "dynamodb-ai-chat-modeling", tags: ["dynamodb", "nosql", "aws"] },
-  { id: "3db18648-ede9-4542-80d7-d791e02c16f6", slug: "duckdb", tags: ["duckdb", "data-engineering"] },
-  { id: "35d3d039-df65-8149-9fcd-d07845820aa7", slug: "aws-dms-gotchas", tags: ["dms", "aws", "data-engineering"] },
-  { id: "35d3d039-df65-8100-90e0-d4ae5095fe49", slug: "airflow-cfg-options", tags: ["airflow", "data-engineering"] },
-  { id: "bd2c07e1-7b52-4ba8-ac67-8d45d875f49f", slug: "dolphie-mysql-monitoring", tags: ["mysql", "monitoring", "tools"] },
-  { id: "23e3d039-df65-80fc-a8d3-c522fa3eb32c", slug: "schema-diff-pro", tags: ["mysql", "tools"] },
-  { id: "2653d039-df65-8082-ba55-e4725d009cf3", slug: "mongodb-local-2025", tags: ["mongodb", "conference"] },
-  { id: "2523d039-df65-800e-9151-f88a51cb98a8", slug: "pycon-korea-2025", tags: ["python", "conference"] },
+  // 2차 이전 (추천 13)
+  { id: "2c9e8840-7025-4da7-9f37-332286620d6a", slug: "mysql-5-7-orphan-table", tags: ["mysql", "troubleshooting", "database"] },
+  { id: "b4998a03-c20c-4ddc-8e26-793d6330d2f4", slug: "mysql-system-variables", tags: ["mysql", "database"] },
+  { id: "8f35ff57-563e-4020-abce-4aeaa14a8aeb", slug: "sql-server-getting-started", tags: ["sql-server", "database"] },
+  { id: "1143d039-df65-808a-bd1a-dd40b5f1e8ff", slug: "compile-c-cpp-on-mac", tags: ["c", "cpp", "macos"] },
+  { id: "9bdb3323-e2f5-4dbf-a668-39c086d499fd", slug: "mysql-monitoring", tags: ["mysql", "monitoring", "database"] },
+  { id: "2ef3d039-df65-8022-8964-efe617bd70e8", slug: "mac-setup-flow", tags: ["macos", "setup", "tools"] },
+  { id: "6db31c83-c425-4a4c-85e6-3e2d509f0abb", slug: "minikube-podman", tags: ["kubernetes", "podman", "tools"] },
+  { id: "8283f7d4-1d82-4458-8c1a-7a0456404431", slug: "mysql-uuid", tags: ["mysql", "database"] },
+  { id: "ae8c774e-dbdb-434b-ad72-c7e8437ed9f8", slug: "mysql-reset-account", tags: ["mysql", "database"] },
+  { id: "4c6776f1-af59-4ec8-9053-a3e6687dcf6e", slug: "mysql-rsa-public-key-error", tags: ["mysql", "troubleshooting"] },
+  { id: "10b3d039-df65-8070-996a-f6b037a69612", slug: "rds-start-export-task", tags: ["aws", "rds", "data-engineering"] },
+  { id: "547f8f54-f5ad-469d-b8f4-b71d6ce18086", slug: "mysql-export-data-file", tags: ["mysql", "data-engineering"] },
+  { id: "ebf6245b-118a-4188-8fb8-7aa2cdb68e69", slug: "cross-db-link-python", tags: ["python", "database", "data-engineering"] },
+  // 2차 이전 (선택 5)
+  { id: "6cbcd062-dc2b-4108-bee6-4020f04d09bb", slug: "sql-server-isolation-levels", tags: ["sql-server", "database", "transaction"] },
+  { id: "37292e30-6313-4e31-be26-9b27eaeedd83", slug: "mysql-json-column", tags: ["mysql", "database"] },
+  { id: "d4e8652a-dce5-4e62-900a-4914b09cdce5", slug: "selenium-crawling-tips", tags: ["python", "selenium", "crawling"] },
+  { id: "10a3d039-df65-8082-8ba8-ff4b156ea687", slug: "airflow-tutorial", tags: ["airflow", "data-engineering"] },
+  { id: "eff124ea-9d18-46b0-9f54-5dfb688c0fec", slug: "mysql-perf-monitoring", tags: ["mysql", "monitoring", "database"] },
 ];
 
 const post = async (url, body) => {
