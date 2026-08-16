@@ -9,7 +9,7 @@ tags:
   - meta
 ---
 
-이 블로그는 세리프 매거진 컨셉의 Astro 사이트다. 파이프라인은 단순하다.
+이 블로그는 "psql 콘솔" 컨셉의 Astro 사이트다. 파이프라인은 단순하다.
 
 ## 흐름
 
@@ -22,7 +22,7 @@ Obsidian 볼트(글에 publish: true)
 
 ## 왜 이 스택인가
 
-- **Astro** — 정적 빌드가 빠르고 디자인 자유도가 높다. Fraunces·Newsreader 세리프로 매거진 느낌을 낸 것도 그 덕분
+- **Astro** — 정적 빌드가 빠르고 디자인 자유도가 높다. 홈을 SQL `select`처럼 꾸민 것도 그 덕분
 - **Cloudflare Pages** — 정적 트래픽 무제한 + 엣지 CDN + 무료 SSL이 사실상 공짜
 - **글은 마크다운** — Neovim에서 쓰고 git으로 관리. CMS 없음
 
@@ -34,4 +34,4 @@ Obsidian 볼트(글에 publish: true)
 npm run publish:site && npm run deploy
 ```
 
-> 만드는 과정에서 여러 번 갈아엎었다. 결국 "덜어내고 글에 집중하는" 게 답이었다.
+> 만드는 과정에서 여러 번 갈아엎었다. 결국 "내가 쓰는 도구(터미널/DB)"에서 정체성을 뽑는 게 답이었다.

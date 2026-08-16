@@ -6,35 +6,22 @@ import Footer from "@/components/Footer.astro";
 
 <Layout title="About">
   <Header />
-  <main id="main-content" class="app-layout">
-    <section class="border-border border-b pt-10 pb-6">
-      <p class="text-accent mb-3 font-mono text-xs tracking-widest uppercase">
-        About
-      </p>
-      <h1 class="font-display text-4xl font-semibold tracking-tight">
-        giho.seong
-      </h1>
-    </section>
-
-    <section class="space-y-5 py-8 text-lg leading-relaxed">
-      <p>
-        데이터베이스·데이터 엔지니어. MySQL·Redshift를 다루고, Neovim과 터미널에서
-        대부분의 시간을 보냅니다.
-      </p>
-      <p>
-        이 블로그는 Obsidian 볼트에 쌓인 글 중 공개해도 되는 것만 골라 발행합니다.
-        도구·데이터·삽질의 기록.
-      </p>
-      <p class="text-muted-foreground font-mono text-sm">
-        <a class="text-accent hover:underline" href="/posts/">posts</a> ·
-        <a class="text-accent hover:underline" href="/tags/">tags</a> ·
-        <a
-          class="text-accent hover:underline"
-          href="https://github.com/ggiho"
-          target="_blank"
-          rel="noreferrer">github</a
-        >
-      </p>
+  <main id="main-content" class="app-layout my-1">
+    <section class="pt-8 pb-6 text-sm sm:text-base">
+      <p class="text-muted-foreground">giho@blog ~ % whoami</p>
+      <h1 class="mt-1 mb-6 text-2xl font-bold">giho.seong</h1>
+      <div class="space-y-4">
+        <p>
+          데이터베이스·데이터 엔지니어. MySQL·Redshift를 다루고, Neovim과 터미널에서
+          대부분의 시간을 보냅니다.
+        </p>
+        <p>이 블로그는 Obsidian 볼트의 글 중 공개용만 골라 발행합니다.</p>
+        <p>
+          탐색 →
+          <a class="text-accent hover:underline" href="/posts/">posts</a> ·
+          <a class="text-accent hover:underline" href="/tags/">tags</a>
+        </p>
+      </div>
     </section>
   </main>
   <Footer />

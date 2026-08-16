@@ -7,32 +7,31 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-
-  /* 세리프 매거진: 본문 Newsreader, 헤드라인 Fraunces, 데이터 mono */
-  --font-app: var(--font-newsreader);
-  --font-display: var(--font-fraunces);
-  --font-mono: var(--font-google-sans-code);
+  --color-prompt: var(--prompt);
+  --font-app: var(--font-google-sans-code);
 }
 
-/* Light — paper */
+/* Light — paper terminal */
 :root,
 [data-theme="light"] {
-  --background: #fbfaf7;
-  --foreground: #1b1a18;
-  --accent: #6f2232; /* oxblood */
-  --accent-foreground: #fbfaf7;
-  --muted: #ece9e2;
-  --muted-foreground: #8c877b;
-  --border: #e6e2d9;
+  --background: #f5f4f1;
+  --foreground: #20242c;
+  --accent: #2f5fd0; /* blue links */
+  --accent-foreground: #ffffff;
+  --muted: #e6e4df;
+  --muted-foreground: #5b6472;
+  --border: #e2e0db;
+  --prompt: #b5730f; /* amber prompt */
 }
 
-/* Dark — night edition */
+/* Dark — psql console */
 [data-theme="dark"] {
-  --background: #1a1815;
-  --foreground: #eae6dd;
-  --accent: #d08a93; /* dusty rose (oxblood on dark) */
-  --accent-foreground: #1a1815;
-  --muted: #2a2621;
-  --muted-foreground: #928c7e;
-  --border: #2e2a24;
+  --background: #0d1017;
+  --foreground: #c8d0da;
+  --accent: #7aa2f7; /* blue links */
+  --accent-foreground: #0d1017;
+  --muted: #1b2130;
+  --muted-foreground: #6b7688;
+  --border: #232a38;
+  --prompt: #e3a857; /* amber prompt */
 }

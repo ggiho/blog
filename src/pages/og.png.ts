@@ -6,7 +6,7 @@ import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
 import config from "@/config";
 
 export const GET: APIRoute = async context => {
-  const fonts = fontData["--font-fraunces"];
+  const fonts = fontData["--font-google-sans-code"];
   const regularFontPath = getFontPathByWeight(fonts, 400);
   const boldFontPath = getFontPathByWeight(fonts, 700);
 
@@ -28,13 +28,13 @@ export const GET: APIRoute = async context => {
       type: "div",
       props: {
         style: {
-          background: "#fbfaf7",
+          background: "#fefbfb",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "Fraunces",
+          fontFamily: "Google Sans Code",
         },
         children: [
           {
@@ -44,8 +44,8 @@ export const GET: APIRoute = async context => {
                 position: "absolute",
                 top: "-1px",
                 right: "-1px",
-                border: "3px solid #6f2232",
-                background: "#ece9e2",
+                border: "4px solid #000",
+                background: "#ecebeb",
                 opacity: "0.9",
                 borderRadius: "4px",
                 display: "flex",
@@ -60,8 +60,8 @@ export const GET: APIRoute = async context => {
             type: "div",
             props: {
               style: {
-                border: "3px solid #6f2232",
-                background: "#fbfaf7",
+                border: "4px solid #000",
+                background: "#fefbfb",
                 borderRadius: "4px",
                 display: "flex",
                 justifyContent: "center",
@@ -145,13 +145,13 @@ export const GET: APIRoute = async context => {
       embedFont: true,
       fonts: [
         {
-          name: "Fraunces",
+          name: "Google Sans Code",
           data: regularData,
           weight: 400,
           style: "normal",
         },
         {
-          name: "Fraunces",
+          name: "Google Sans Code",
           data: boldData,
           weight: 700,
           style: "normal",
