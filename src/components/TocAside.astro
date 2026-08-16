@@ -1,0 +1,37 @@
+---
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+  headings: MarkdownHeading[];
+  minHeadings?: number;
+};
+
+const { headings, minHeadings = 3 } = Astro.props;
+const items = headings.filter(h => h.depth === 2 || h.depth === 3);
+const show = items.length >= minHeadings;
+---
+
+{
+  show && (
+    <aside
+      class="toc-aside fixed top-32 z-10 hidden max-h-[70vh] w-52 overflow-y-auto text-sm xl:block"
+      style="inset-inline-start: calc(50% + 25.5rem);"
+      aria-label="목차"
+    >
+      <p class="text-prompt mb-3 text-xs tracking-wider">-- contents</p>
+      <ul>
+        {items.map(h => (
+          <li class={h.depth === 3 ? "ms-3" : ""}>
+            <a
+              href={`#${h.slug}`}
+              data-toc-link={h.slug}
+              class="text-muted-foreground hover:text-accent block border-s border-transparent py-1 ps-3 no-underline transition-colors"
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}

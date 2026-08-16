@@ -13,6 +13,7 @@ import BackButton from "./_components/BackButton.astro";
 import BackToTopButton from "./_components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import Toc from "@/components/Toc.astro";
+import TocAside from "@/components/TocAside.astro";
 import Comments from "@/components/Comments.astro";
 import config from "@/config";
 
@@ -146,6 +147,7 @@ const ogImage = ogImageUrl
     </div>
 
     <Toc {headings} />
+    <TocAside {headings} />
 
     <article
       id="article"
@@ -309,6 +311,39 @@ const ogImage = ogImageUrl
     }
   }
   attachCopyButtons();
+
+  /** 우측 TOC 사이드바 — 현재 섹션 링크 강조 (scrollspy) */
+  function initTocSpy() {
+    const links = Array.from(document.querySelectorAll("[data-toc-link]"));
+    if (!links.length) return;
+    const map = new Map(links.map(a => [a.getAttribute("data-toc-link"), a]));
+    const targets = [...map.keys()]
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    if (!targets.length) return;
+
+    const setActive = id => {
+      map.forEach((a, k) => {
+        const on = k === id;
+        a.classList.toggle("text-accent", on);
+        a.classList.toggle("border-accent", on);
+        a.classList.toggle("text-muted-foreground", !on);
+        a.classList.toggle("border-transparent", !on);
+      });
+    };
+
+    const obs = new IntersectionObserver(
+      entries => {
+        const vis = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (vis[0]) setActive(vis[0].target.id);
+      },
+      { rootMargin: "-10% 0px -70% 0px", threshold: 0 }
+    );
+    targets.forEach(t => obs.observe(t));
+  }
+  initTocSpy();
 
   /** Accessible image lightbox for article images. */
   function initLightbox() {
