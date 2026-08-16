@@ -38,9 +38,15 @@
   scroll-margin-block: 1rem;
 }
 
-/* 본문 섹션 제목에 앰버 강조 (본문 텍스트와 색 구분) */
-.app-prose :is(h2, h3, h4) {
+/* 본문 제목 레벨별 색 구분 (위계 강조) */
+.app-prose h2 {
   color: var(--prompt);
+} /* amber — 대분류 */
+.app-prose h3 {
+  color: var(--accent);
+} /* blue — 중분류 */
+.app-prose h4 {
+  color: var(--foreground);
 }
 
 /* 코드블록: night-owl 글씨색 유지, 배경만 검은회색으로 (네이비 제거) */
